@@ -4,8 +4,7 @@
       My Account
       %b.caret
     %ul.dropdown-menu
-      %li
-        %a{:href => "#"} Action
+      -#%li= link_to 'Some Action',"#"
       = active_link_to 'Edit account', edit_user_registration_path, wrap_tag: :li
       = active_link_to 'Logout', destroy_user_session_path, :method=>'delete', wrap_tag: :li
 - else

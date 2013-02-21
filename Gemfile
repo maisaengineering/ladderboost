@@ -19,6 +19,9 @@ gem 'thin'
 #Creates a link tag of the given name using a URL created by the set of options.
 gem 'active_link_to' #https://github.com/twg/active_link_to
 
+gem 'simple_form'
+
+
 
 gem "haml-rails", ">= 0.4"
 gem "html2haml", ">= 1.0.1", :group => :development

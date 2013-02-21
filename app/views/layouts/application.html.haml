@@ -27,15 +27,15 @@
             %span.icon-bar
           %a.brand(href="#{root_path}") Ladderboost
           .container.nav-collapse
-            %ul.nav
-              %li= active_link_to "Link 1", "#"
-              %li= active_link_to "Link 2", "3"
+            %ul.nav.pull-right
+              %li= active_link_to "About Us", "#"
+              %li= active_link_to "How it works", "#"
               = render 'shared/navigation'
 
     .container-fluid
 
       .row-fluid
-        .span3
+        -#.span3
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
