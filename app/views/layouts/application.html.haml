@@ -28,8 +28,8 @@
           %a.brand(href="#{root_path}") Ladderboost
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "#"
-              %li= link_to "Link 2", "3"
+              %li= active_link_to "Link 1", "#"
+              %li= active_link_to "Link 2", "3"
               = render 'shared/navigation'
 
     .container-fluid
@@ -39,9 +39,9 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "#"
-              %li= link_to "Link 2", "#"
-              %li= link_to "Link 3", "#"
+              %li= active_link_to "Link 1", "#"
+              %li= active_link_to "Link 2", "#"
+              %li= active_link_to "Link 3", "#"
         .span9
           = bootstrap_flash
           = yield
