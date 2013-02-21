@@ -20,6 +20,12 @@ db/*.sqlite3
 /log/*
 /tmp/*
 
+#ignore rubymine content
+/.idea
+
+#ignore precompiled assets
+/public/assets
+
 # various artifacts
 **.war
 *.rbc
