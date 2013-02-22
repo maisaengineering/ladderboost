@@ -25,6 +25,7 @@ db/*.sqlite3
 
 #ignore precompiled assets
 /public/assets
+/public/avatars
 
 # various artifacts
 **.war
