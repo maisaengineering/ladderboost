@@ -31,25 +31,18 @@
               %li= active_link_to "About Us", "#"
               %li= active_link_to "How it works", "#"
               = render 'shared/navigation'
+    .container
+      / Main hero unit for a primary marketing message or call to action
+      .row
+        = bootstrap_flash
+        = yield
 
-    .container-fluid
-
-      .row-fluid
-        -#.span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= active_link_to "Link 1", "#"
-              %li= active_link_to "Link 2", "#"
-              %li= active_link_to "Link 3", "#"
-        .span9
-          = bootstrap_flash
-          = yield
-    
-      %footer{style: 'text-align: center;margin-top: 50px;border-top:1px dotted;'}
-        %p{style: 'margin: 10px;'}
+      %hr/
+      %footer
+        %p
           %a{href: "http://www.maisasolutions.com" ,target: '_blank'}> Maisa Solutions
           \ &copy; Company 2012
+    / /container
     /
       Javascripts
       \==================================================
