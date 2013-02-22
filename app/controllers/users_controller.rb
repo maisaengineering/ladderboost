@@ -5,8 +5,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  #GET account_path(user) or
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
 end

@@ -1,0 +1,8 @@
+%h4 Editing profile
+
+= render 'form',button_name: 'Update Profile'
+
+=# link_to 'Show', user_profile_path(current_user)
+= link_to 'My Account',my_account_path# user_profile_path(current_user)
+\|
+= link_to 'Back',my_account_path

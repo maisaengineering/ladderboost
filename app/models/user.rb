@@ -14,7 +14,7 @@ class User
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
-  
+
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -42,9 +42,26 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-  # run 'rake db:mongoid:create_indexes' to create indexes
-  index({ email: 1 }, { unique: true, background: true })
+
+
+  # Fields-------------------------------------------------------------
   field :name, :type => String
-  validates_presence_of :name
+  # Setup Indexes on DB------------------------------------------------
+  #run 'rake db:mongoid:create_indexes' to create indexes
+  index({ email: 1 }, { unique: true, background: true })
+
+  # Setup accessible (or protected) attributes for your model----------
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+
+  # VALIDATIONS -------------------------------------------------------
+  validates_presence_of :name
+
+  # Constansts Or Class variable---------------------------------------
+  # Associations  -----------------------------------------------------
+  embeds_one :profile
+
+  # Call Backs---------------------------------------------------------
+  # Class Methods Or Scopes -------------------------------------------
+  # Instance  Methods --------------------------------------------------
+  # Private or Protected Methods----- ----------------------------------
 end
