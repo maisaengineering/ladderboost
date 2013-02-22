@@ -1,8 +1,12 @@
 - if user_signed_in?
   %li.dropdown
     %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-      = image_tag(current_user.profile.avatar.url(:small),height: 25,width: 25)
+      - if current_user.profile?
+        = image_tag(current_user.profile.avatar.url(:small),height: 25,width: 25)
+      - else
+        = image_tag('avatars/small/missing.png',height: 25,width: 25)
       = current_user.profile.try(:name).present? ? current_user.profile.name : current_user.name
+
       %b.caret
     %ul.dropdown-menu
       -#%li= link_to 'Some Action',"#"
