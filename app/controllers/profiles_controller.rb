@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(params[:profile])
     if @profile.save
-      redirect_to user_profile_path(current_user), notice: 'Profile was successfully created.'
+      redirect_to my_account_path, notice: 'Profile was successfully created.'
     else
       render action: "new"
     end
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to user_profile_path(current_user), notice: 'Profile was successfully updated.' }
+        format.html { redirect_to my_account_path, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -14,17 +14,21 @@ class Profile
   index({ first_name: 1 },{background: true})
   index({ last_name: 1 },{background: true})
   # Setup accessible (or protected) attributes for your model----------
-  # VALIDATIONS -------------------------------------------------------
-  validates :first_name,:last_name, presence: true
-
-  # Constansts Or Class variable---------------------------------------
-  # Associations  -----------------------------------------------------
   has_mongoid_attached_file :avatar, styles: {medium: "100x100>",
                                               small: "25x25>",
                                               large: "200x200>"},
                             default_url: ActionController::Base.helpers.asset_path('avatars/:style/missing.png'),
                             url: "/avatars/:id/:style/:basename.:extension",
                             path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
+  # VALIDATIONS -------------------------------------------------------
+  validates :first_name,:last_name, presence: true
+  validates_attachment :avatar, presence: true,
+                       :content_type => { :content_type => ['image/jpeg', 'image/png','image/jpg','image/gif'] },
+                       :size => { :in => 0..5.megabytes }
+
+  # Constansts Or Class variable---------------------------------------
+  # Associations  -----------------------------------------------------
+
   embedded_in :user
 
   # Call Backs---------------------------------------------------------
