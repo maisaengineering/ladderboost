@@ -17,7 +17,7 @@ class Profile
   has_mongoid_attached_file :avatar, styles: {medium: "100x100>",
                                               small: "25x25>",
                                               large: "200x200>"},
-                            default_url: ActionController::Base.helpers.asset_path('avatars/:style/missing.png'),
+                            default_url: '/assets/avatars/:style/missing.png',
                             url: "/avatars/:id/:style/:basename.:extension",
                             path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
   # VALIDATIONS -------------------------------------------------------
