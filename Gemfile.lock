@@ -47,6 +47,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.8)
       ffi (~> 1.0, >= 1.0.11)
+    cocaine (0.4.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -130,6 +131,8 @@ GEM
       moped (~> 1.4.2)
       origin (~> 1.0)
       tzinfo (~> 0.3.22)
+    mongoid-paperclip (0.0.8)
+      paperclip (>= 2.3.6)
     mongoid-rspec (1.6.0)
       mongoid (>= 3.0.1)
       rake
@@ -139,6 +142,12 @@ GEM
     nokogiri (1.5.6)
     origin (1.0.11)
     orm_adapter (0.4.0)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyglot (0.3.3)
     quiet_assets (1.0.1)
       railties (~> 3.1)
@@ -254,6 +263,7 @@ DEPENDENCIES
   less-rails
   libv8 (>= 3.11.8)
   mongoid (>= 3.1.1)
+  mongoid-paperclip
   mongoid-rspec (>= 1.6.0)
   quiet_assets (>= 1.0.1)
   rails (= 3.2.11)

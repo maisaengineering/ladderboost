@@ -1,6 +1,7 @@
 class Profile
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Paperclip
 
   # Fields-----------------------------------------------------------
   field :first_name
@@ -18,6 +19,12 @@ class Profile
 
   # Constansts Or Class variable---------------------------------------
   # Associations  -----------------------------------------------------
+  has_mongoid_attached_file :avatar, styles: {medium: "100x100>",
+                                              small: "25x25>",
+                                              large: "200x200>"},
+                            default_url: ActionController::Base.helpers.asset_path('avatars/:style/missing.png'),
+                            url: "/avatars/:id/:style/:basename.:extension",
+                            path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
   embedded_in :user
 
   # Call Backs---------------------------------------------------------
