@@ -59,8 +59,7 @@ gem 'heroku'
 
 # Creates Fake Data
 
-gem 'populator'
-gem 'faker'
+
 
 
 
