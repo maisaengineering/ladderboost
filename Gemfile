@@ -6,6 +6,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   # Twitter Bootstrap
 
+  gem 'populator'
+  gem 'faker'
+
 end
 #jquery specific
 gem 'jquery-rails'
