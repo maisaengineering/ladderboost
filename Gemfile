@@ -53,11 +53,15 @@ gem "haml-rails", ">= 0.4"
 gem "devise", ">= 2.2.3"
 gem "figaro", ">= 0.5.3"
 gem "libv8", ">= 3.11.8"
+gem 'heroku'
+
 
 # Creates Fake Data
 
 gem 'populator'
 gem 'faker'
+
+
 
 
 
