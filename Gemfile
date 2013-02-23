@@ -44,6 +44,13 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
+
+#Ominauth social login
+gem "omniauth", ">= 1.1.0"
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem 'omniauth-openid'
+
 gem 'thin'
 
 #Creates a link tag of the given name using a URL created by the set of options.
@@ -56,8 +63,6 @@ gem "figaro", ">= 0.5.3"
 gem "libv8", ">= 3.11.8"
 gem 'heroku'
 
-
-# Creates Fake Data
 
 
 

@@ -14,6 +14,15 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/new
   # GET /users/:user_id/profile/new.json
   def new
+    if session[:social_login_data]
+      data = session[:social_login_data]
+      @profile.assign_attributes(first_name: data.try(:first_name),last_name: data.try(:last_name),
+                                 nickname: data.try(:nickname),location: data.try(:location),
+                                 phone_number: data.try(:phone),professional_headline: data.try(:headline))
+
+    end
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @profile }
@@ -27,7 +36,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(params[:profile])
     if @profile.save
-      redirect_to my_account_path, notice: 'Profile was successfully created.'
+      redirect_to my_account_path, notice: 'Profile was successfully saved.'
     else
       render action: "new"
     end

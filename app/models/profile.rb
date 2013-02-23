@@ -6,9 +6,22 @@ class Profile
   # Fields-----------------------------------------------------------
   field :first_name
   field :last_name
+  field :nickname
+  field :professional_headline
+  field :phone_number
+  field :birth_day
+  field :gender
+
+  #address
+  field :location
   field :city
   field :state
   field :country
+  field :zip_code
+  field :industry
+
+  #
+  field :interests
 
   # Setup Indexes on DB -----------------------------------------------
   index({ first_name: 1 },{background: true})
@@ -22,22 +35,33 @@ class Profile
                             path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
   # VALIDATIONS -------------------------------------------------------
   validates :first_name,:last_name, presence: true
-  validates_attachment :avatar, presence: true,
+  validates_attachment :avatar,
                        :content_type => { :content_type => ['image/jpeg', 'image/png','image/jpg','image/gif'] },
                        :size => { :in => 0..5.megabytes }
 
-  # Constansts Or Class variable---------------------------------------
+  # Constants Or Class variable---------------------------------------
+
   # Associations  -----------------------------------------------------
 
   embedded_in :user
 
   # Call Backs---------------------------------------------------------
+  before_save :titleize_attributes
   # Class Methods Or Scopes -------------------------------------------
+
   # Instance  Methods --------------------------------------------------
+  def titleize_attributes
+    %w(first_name last_name).each do |attr|
+       self.send("#{attr}=", self.send(attr).titleize)
+    end
+  end
+
   def name
     "#{first_name} #{last_name}"
   end
   # Private or Protected Methods----- ----------------------------------
+
+
 
 
 end

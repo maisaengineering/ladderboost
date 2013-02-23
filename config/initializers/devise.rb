@@ -214,6 +214,20 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  require "omniauth-facebook"
+  #require "omniauth-twitter"
+  require "omniauth-linkedin"
+  require 'openid/store/filesystem'
+
+
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
+  config.omniauth :linkedin,ENV['LINKEDIN_APP_ID'], ENV['LINKEDIN_APP_SECRET'],
+                  client_options: {request_token_path: '/uas/oauth/requestToken?scope=r_emailaddress+r_contactinfo'},
+                  fields:  ['id', 'first-name', 'last-name', 'headline', 'industry', 'picture-url', 'public-profile-url','email-address',
+                            'location','summary','phone-numbers','main-address']
+
+
+  config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

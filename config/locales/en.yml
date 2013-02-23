@@ -3,3 +3,5 @@
 
 en:
   hello: "Hello world"
+  profile_notice: "Fill your basic information before continuing"
+  profile_fill_notice: "Please save the details below and continue"

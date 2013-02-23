@@ -5,7 +5,7 @@ class User
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable, :confirmable,:omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
@@ -30,10 +30,10 @@ class User
   field :last_sign_in_ip,    :type => String
 
   ## Confirmable
-   field :confirmation_token,   :type => String
-   field :confirmed_at,         :type => Time
-   field :confirmation_sent_at, :type => Time
-   field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  field :confirmation_token,   :type => String
+  field :confirmed_at,         :type => Time
+  field :confirmation_sent_at, :type => Time
+  field :unconfirmed_email,    :type => String # Only if using reconfirmable
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
@@ -44,24 +44,65 @@ class User
   # field :authentication_token, :type => String
 
 
+
   # Fields-------------------------------------------------------------
   field :name, :type => String
+  ##Omniauthable
+  field :provider
+  field :facebook_uid
+  field :linkedin_uid
+
   # Setup Indexes on DB------------------------------------------------
   #run 'rake db:mongoid:create_indexes' to create indexes
   index({ email: 1 }, { unique: true, background: true })
 
   # Setup accessible (or protected) attributes for your model----------
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at ,
+                  :provider,:facebook_uid,:linkedin_uid
 
   # VALIDATIONS -------------------------------------------------------
-  validates_presence_of :name
+  #validates_presence_of :name
 
   # Constansts Or Class variable---------------------------------------
   # Associations  -----------------------------------------------------
   embeds_one :profile
 
   # Call Backs---------------------------------------------------------
+
   # Class Methods Or Scopes -------------------------------------------
-  # Instance  Methods --------------------------------------------------
-  # Private or Protected Methods----- ----------------------------------
+  #Omniauth instance methods
+  #----------------------------------------------------------------------------------------------------------------------
+  #--- Devise with Omniauth follow below -----------------
+  # https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
+  # for facebook followed https://github.com/mkdynamic/omniauth-facebook
+  class << self
+    def new_with_session(params, session)
+      super.tap do |user|
+        if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+          user.email = data["email"]
+        end
+      end
+    end
+
+    %w(facebook linkedin google).each do |social|
+      define_method(:"find_for_#{social}_oauth") do |access_token, signed_in_resource = nil|
+        email = access_token.provider.eql?('facebook') ? access_token.extra.raw_info.email : access_token.info.email
+        if user = where(email: email).first
+          user.confirm! unless user.confirmed?
+          user
+        else # Create a user with a stub password.
+          user = User.new(email: email, password: Devise.friendly_token[0,20], provider: access_token.provider)
+          user.send("#{social}_uid=",access_token.extra.raw_info.try(:id)) unless social.eql?('google')
+          user.skip_confirmation!
+          user.save!
+          user
+        end
+      end
+    end
+
+
+end
+
+# Instance  Methods --------------------------------------------------
+# Private or Protected Methods----- ----------------------------------
 end
