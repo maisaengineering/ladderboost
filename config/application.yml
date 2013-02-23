@@ -1,0 +1,21 @@
+# Add account credentials and API keys here.
+# See http://railsapps.github.com/rails-environment-variables.html
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Add application configuration variables here, as shown below.
+#
+GMAIL_USERNAME: maisa.engineers@gmail.com
+GMAIL_PASSWORD: maisa123
+ADMIN_NAME: MaisaAdmin
+ADMIN_EMAIL: admin@example.com
+ADMIN_PASSWORD: admin123
+#Developer API (OminAuth)
+
+FACEBOOK_APP_ID: 339992809445978
+FACEBOOK_APP_SECRET: 358d4825303e1a29a19c70a4f9a7fda3
+
+LINKEDIN_APP_ID: 6e4lz34dftbp
+LINKEDIN_APP_SECRET: fjPA6POIBrPc5YEw
