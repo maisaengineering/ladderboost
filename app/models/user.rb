@@ -66,6 +66,7 @@ class User
   # Constansts Or Class variable---------------------------------------
   # Associations  -----------------------------------------------------
   embeds_one :profile
+  embeds_many :educations
 
   # Call Backs---------------------------------------------------------
 

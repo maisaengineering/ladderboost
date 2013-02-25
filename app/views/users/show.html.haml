@@ -1,46 +1,44 @@
-.span11.help{:style => ""}
-  .well
-    %table.table
-      %thead
+.well
+  %table.table
+    %thead
+      %tr
+        %th{colspan: '2'} My Account Details
+    %tbody
+      %tr
+        %td Email
+        %td= @user.email
+      - if @user.profile.try(:name).present?
         %tr
-          %th{colspan: '2'} My Account Details
-      %tbody
+          %td First Name
+          %td= @user.profile.try(:first_name)
         %tr
-          %td Email
-          %td= @user.email
-        - if @user.profile.try(:name).present?
-          %tr
-            %td First Name
-            %td= @user.profile.try(:first_name)
-          %tr
-            %td Last Name
-            %td= @user.profile.try(:last_name)
-        - else
-          %tr
-            %td Name
-            %td= @user.name
+          %td Last Name
+          %td= @user.profile.try(:last_name)
+      - else
         %tr
-          %td City
-          %td= @user.profile.try(:city)
-        %tr
-          %td State
-          %td= @user.profile.try(:state)
-        %tr
-          %td Current Sign in time
-          %td= @user.current_sign_in_at
-        %tr
-          %td Last Sign in time
-          %td= @user.last_sign_in_at
-        %tr
-          %td Current Sign in IP
-          %td= @user.current_sign_in_ip
-        %tr
-          %td Last Sign in IP
-          %td= @user.last_sign_in_ip
-        %tr
-          %td{colspan: 2,style: 'margin-top: 15px;text-align: right;'}
-            =# link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_profile_path(@user), :class => 'btn btn-info'
-            =# link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-
+          %td Name
+          %td= @user.name
+      %tr
+        %td City
+        %td= @user.profile.try(:city)
+      %tr
+        %td State
+        %td= @user.profile.try(:state)
+      %tr
+        %td Current Sign in time
+        %td= @user.current_sign_in_at
+      %tr
+        %td Last Sign in time
+        %td= @user.last_sign_in_at
+      %tr
+        %td Current Sign in IP
+        %td= @user.current_sign_in_ip
+      %tr
+        %td Last Sign in IP
+        %td= @user.last_sign_in_ip
+      %tr
+        %td{colspan: 2,style: 'margin-top: 15px;text-align: right;'}
+          =# link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_profile_path(@user), class: 'btn btn-info'
+          =# link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
 

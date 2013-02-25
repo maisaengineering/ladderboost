@@ -1,0 +1,9 @@
+.span3
+  .well.sidebar-nav.sidebar-nav-fixed
+    %ul.nav.nav-list
+      %li.nav-header Account Settings
+      = active_link_to 'Education',user_educations_path(current_user) , wrap_tag: :li
+      %li
+        %a{:href => "#"} Link
+      %li
+        %a{:href => "#"} Link

@@ -1,12 +1,13 @@
 Ladderboost::Application.routes.draw do
 
+
   authenticated :user do
     root :to => 'home#index'
   end
 
   root :to => "home#index"
 
-  devise_for :users ,controllers: {:omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users ,controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   devise_scope :user do
     # match "/login" => "devise/sessions#new"
     # delete "/logout" => "devise/sessions#destroy"
@@ -14,10 +15,11 @@ Ladderboost::Application.routes.draw do
     post 'users/auth/register'=>'users/omniauth_callbacks#create'
   end
 
-  resources :users do
+  resources :users  do
     resource :profile
+    resources :educations  , controller: 'users/educations'
   end
 
-  match "/my_account" => "users#show",:as=>:my_account
+  match "/my_account" => "users#show",as: :my_account
 
 end

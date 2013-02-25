@@ -23,21 +23,38 @@
     .navbar.navbar-fluid-top
       .navbar-inner
         .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#{root_path}") Ladderboost
-          .container.nav-collapse
-            %ul.nav.pull-right
-              %li= active_link_to "About Us", "#"
-              %li= active_link_to "How it works", "#"
-              = render 'shared/navigation'
+          .btn-group.pull-right
+            = render 'shared/navigation'
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
+              - unless user_signed_in?
+                = active_link_to 'Login', new_user_session_path, wrap_tag: :li
+                = active_link_to'Sign up', new_user_registration_path , wrap_tag: :li
+
+          / /.nav-collapse
+
     .container
       / Main hero unit for a primary marketing message or call to action
       .row
-        = bootstrap_flash
-        = yield
+        - if defined?(@no_sidebar)
+          = render 'shared/left_sidebar'
+          #content.span9
+            = yield
+        - else
+          #content.span12
+            = bootstrap_flash
+            = yield
 
       %hr/
       %footer

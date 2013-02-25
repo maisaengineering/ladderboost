@@ -1,0 +1,18 @@
+= simple_form_for([current_user,@education],html: {class: 'form-horizontal'}) do |f|
+  .form-inputs
+    = f.error_notification
+    = f.input :school_name ,label: 'School / College'
+    = f.input :degree
+    = f.input :field_of_study
+    = f.input :education_start_date,as: :date, :label => 'From'
+
+    = f.input :education_end_date,as: :date, :label => 'To'
+    = f.input :activities_societies,as: :text,hint: "Examples: Alpha Phi Omega, Chamber Chorale, Debate Team" ,
+               input_html:{rows: 3 }
+    = f.input :additional_notes,as: :text ,label: 'Notes (if any)',
+               input_html:{rows: 3 }
+
+  .form-actions
+    = f.button :submit ,button_name,class: 'btn-info'
+
+

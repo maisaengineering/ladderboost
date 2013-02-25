@@ -1,0 +1,18 @@
+.well
+  %table.table
+    %thead
+      %tr
+        %th Education Details
+        %th
+          %a{href: new_user_education_path(current_user) }
+            %i.icon-plus &nbsp;Add
+    %tbody
+      - if @educations.blank?
+        %tr
+          %td{colspan: '2'}
+            %p.text-error No Educations found
+      - else
+        - @educations.each do |education|
+          %tr
+            %td School Name
+            %td= education.school_name
