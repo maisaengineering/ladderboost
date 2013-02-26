@@ -37,7 +37,7 @@ end
 gem 'jquery-rails'
 
 #mongoDb specific
-gem "mongoid", ">= 3.1.1"
+gem "mongoid", "3.1.0"
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 
 #Bootstrap specific
