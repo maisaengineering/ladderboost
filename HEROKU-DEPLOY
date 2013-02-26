@@ -1,0 +1,15 @@
+
+#########----Deploy the app into Heroku
+---------------------------------------------------------------------
+1) Add addon MongoHQ in heroku account if not added
+         OR
+   heroku addons:add mongohq:sandbox
+
+2) gem "mongoid", "3.1.0" (be sure stable version)
+3) git push heroku master
+
+
+4) heroku run rake db:drop (if don't need previous data)
+5) heroku run rake db:create
+6) heroku run rake db:seed
+7) heroku restart
