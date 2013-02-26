@@ -63,7 +63,9 @@ class User
 
   # VALIDATIONS -------------------------------------------------------
   #validates_presence_of :name
-  validates :role ,presence: true
+
+  #skip if logged in from omniauth and prompt it to fill in profile
+  validates :role ,presence: true,if: Proc.new { |r| r.provider.nil? }
   # Constansts Or Class variable---------------------------------------
   ROLE = %w(Mentor Mentee Both)
 
@@ -96,7 +98,7 @@ class User
           user.confirm! unless user.confirmed?
           user
         else # Create a user with a stub password.
-          user = User.new(email: email, password: Devise.friendly_token[0,20], provider: access_token.provider)
+          user = User.new(email: email, password: Devise.friendly_token[0,20], provider: social)
           user.send("#{social}_uid=",access_token.extra.raw_info.try(:id)) unless social.eql?('google')
           user.skip_confirmation!
           user.save!

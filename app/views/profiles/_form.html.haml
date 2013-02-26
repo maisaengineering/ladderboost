@@ -13,6 +13,9 @@
     .form-inputs.row
       = f.input :city, wrapper_html: {class: 'span4'}
       = f.input :state, :as => :string, wrapper_html: {class: 'span4'}
+    - if current_user.role.nil?#if signed-in via omniauth capture the role here
+      .form-inputs.row
+        = f.input :role ,collection: User::ROLE, wrapper_html: {class: 'span4'},label: 'I am'
     = f.input :nickname ,as: :hidden
     -#.form-inputs.row
       = f.input :country,:as => :select ,wrapper_html: {class: 'span4'}
