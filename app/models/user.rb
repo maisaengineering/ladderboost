@@ -65,7 +65,7 @@ class User
   #validates_presence_of :name
 
   #skip if logged in from omniauth and prompt it to fill in profile
-  validates :role ,presence: true,unless: Proc.new { |r| r.provider.present? }
+  validates :role ,presence: true,if: Proc.new { |r| r.provider.nil? }
   # Constansts Or Class variable---------------------------------------
   ROLE = %w(Mentor Mentee Both)
 
