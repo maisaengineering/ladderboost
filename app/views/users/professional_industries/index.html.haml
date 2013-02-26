@@ -1,0 +1,29 @@
+.well
+  %table.table
+    %thead
+      %tr
+        %th Professional Industries Details
+        %th
+          %a{href: new_user_professional_industry_path(current_user) }
+            %i.icon-plus &nbsp;Add
+    %tbody
+      - if @professional_industries.blank?
+        %tr
+          %td{colspan: '2'}
+            %p.text-error No Profession Industries Details found
+      - else
+        - @professional_industries.each do |professional_industries|
+          %tr
+            %td
+              .row_content_large= professional_industries.company_name
+              .row_content_medium=  professional_industries.title
+              .row_content_small
+                =  professional_industries.start_date
+                \-- #{professional_industries.end_date}
+            %td.edit_align
+              %a{href: edit_user_professional_industry_path(current_user,professional_industries) }
+                %i.icon-edit &nbsp;edit
+
+
+
+

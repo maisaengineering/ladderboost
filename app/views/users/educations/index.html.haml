@@ -15,9 +15,9 @@
         - @educations.each do |education|
           %tr
             %td
-              .education_name= education.school_name
-              .education_degree=  education.degree
-              .education_date
+              .row_content_large= education.school_name
+              .row_content_medium=  education.degree
+              .row_content_small
                 =  education.education_start_date
                 \-- #{education.education_end_date}
             %td.edit_align
