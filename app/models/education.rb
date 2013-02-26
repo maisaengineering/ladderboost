@@ -6,8 +6,8 @@ class Education
   field :school_name, type: String
   field :degree, type: String
   field :field_of_study, type: String
-  field :education_start_date, type: Date
-  field :education_end_date, type: Date
+  field :education_start_date, type: Integer
+  field :education_end_date, type: Integer
   field :activities_societies, type: String
   field :additional_notes, type: String
   # Setup Indexes on DB -----------------------------------------------

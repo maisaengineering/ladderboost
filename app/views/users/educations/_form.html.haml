@@ -4,9 +4,9 @@
     = f.input :school_name ,label: 'School / College'
     = f.input :degree
     = f.input :field_of_study
-    = f.input :education_start_date,as: :date, :label => 'From'
+    = f.input :education_start_date, collection: Time.now.year - 10..Time.now.year + 10, prompt: "--"
+    = f.input :education_end_date, collection: Time.now.year - 10..Time.now.year + 10, prompt: "--"
 
-    = f.input :education_end_date,as: :date, :label => 'To'
     = f.input :activities_societies,as: :text,hint: "Examples: Alpha Phi Omega, Chamber Chorale, Debate Team" ,
                input_html:{rows: 3 }
     = f.input :additional_notes,as: :text ,label: 'Notes (if any)',

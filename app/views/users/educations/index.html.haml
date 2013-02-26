@@ -14,8 +14,16 @@
       - else
         - @educations.each do |education|
           %tr
-            %td School Name
-            %td= education.school_name
-          %tr
-            %td{colspan: 2}= link_to 'Edit' ,edit_user_education_path(current_user,education)
+            %td
+              .education_name= education.school_name
+              .education_degree=  education.degree
+              .education_date
+                =  education.education_start_date
+                \-- #{education.education_end_date}
+            %td.edit_align
+              %a{href: edit_user_education_path(current_user,education) }
+                %i.icon-edit &nbsp;edit
+
+
+
 
