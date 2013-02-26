@@ -7,17 +7,27 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-GMAIL_USERNAME: maisa.engineers@gmail.com
-GMAIL_PASSWORD: maisa123
-ADMIN_NAME: MaisaAdmin
-ADMIN_EMAIL: admin@example.com
-ADMIN_PASSWORD: admin123
-#Developer API (OminAuth)
 
-#FACEBOOK_APP_ID: 339992809445978
-FACEBOOK_APP_ID: 297373167057348
-#FACEBOOK_APP_SECRET: 358d4825303e1a29a19c70a4f9a7fda3
-FACEBOOK_APP_SECRET: 53167ed7703410295e05b69102d5f876
+defaults: &defaults
 
-LINKEDIN_APP_ID: 6e4lz34dftbp
-LINKEDIN_APP_SECRET: fjPA6POIBrPc5YEw
+  GMAIL_USERNAME: maisa.engineers@gmail.com
+  GMAIL_PASSWORD: maisa123
+  ADMIN_NAME: MaisaAdmin
+  ADMIN_EMAIL: admin@example.com
+  ADMIN_PASSWORD: admin123
+#Linkedin API keys
+  LINKEDIN_APP_ID: 6e4lz34dftbp
+  LINKEDIN_APP_SECRET: fjPA6POIBrPc5YEw
+
+#Facebook API keys
+development:
+  <<: *defaults
+  FACEBOOK_APP_ID: 339992809445978
+  FACEBOOK_APP_SECRET: 358d4825303e1a29a19c70a4f9a7fda3
+
+production:
+  <<: *defaults
+  FACEBOOK_APP_ID: 297373167057348
+  FACEBOOK_APP_SECRET: 53167ed7703410295e05b69102d5f876
+
+
