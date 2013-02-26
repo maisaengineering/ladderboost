@@ -59,6 +59,7 @@ gem 'simple_form'
 
 gem "haml-rails", ">= 0.4"
 gem "devise", ">= 2.2.3"
+gem 'cancan'
 gem "figaro", ">= 0.5.3"
 gem "libv8", ">= 3.11.8"
 gem 'heroku'

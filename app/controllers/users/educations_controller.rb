@@ -1,8 +1,8 @@
 class Users::EducationsController < ApplicationController
+  #load_and_authorize_resource
   before_filter :authenticate_user!
   before_filter :check_user_profile
-  before_filter :find_education,except: [:create]
-
+  before_filter :find_or_build_education,except: [:index,:create]
   before_filter { @no_sidebar = true }
 
   def index

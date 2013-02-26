@@ -6,6 +6,7 @@
   = f.input :email, placeholder: 'user@domain.com'#, hint: 'No special characters.'
   = f.input :password
   = f.input :password_confirmation
+  = f.input :role,collection: User::ROLE
   .form-actions
     = f.button :submit ,'Sign up',class: 'btn-info'
 = render "devise/shared/links"
