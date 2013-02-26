@@ -4,12 +4,7 @@ class ProfilesController < ApplicationController
 
   # GET /users/:user_id/profile
   # GET /users/:user_id/profile.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @profile }
-    end
-  end
+  def show; end
 
   # GET /users/:user_id/profile/new
   # GET /users/:user_id/profile/new.json
@@ -20,12 +15,6 @@ class ProfilesController < ApplicationController
                                  nickname: data.try(:nickname),location: data.try(:location),
                                  phone_number: data.try(:phone),professional_headline: data.try(:headline))
 
-    end
-
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @profile }
     end
   end
 
@@ -46,25 +35,19 @@ class ProfilesController < ApplicationController
   # PUT /users/:user_id/profile.json
 
   def update
-    respond_to do |format|
-      if @profile.update_attributes(params[:profile])
-        format.html { redirect_to my_account_path, notice: 'Profile was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+    if @profile.update_attributes(params[:profile])
+      redirect_to my_account_path, notice: 'Profile was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /users/:user_id/profile
-  # DELETE /users/:user_id/profile.json
+
+# DELETE /users/:user_id/profile
+# DELETE /users/:user_id/profile.json
   def destroy
     @profile.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
   end
 
   private
