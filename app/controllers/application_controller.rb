@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  add_breadcrumb :index, :root_path
+ # add_breadcrumb :index, :root_path
+
+  #If the user authorization fails, a CanCan::AccessDenied exception will be raised. You can catch this like
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = exception.message
+    redirect_to root_url
+  end
 
 
   #redirect to profile creation page if not exists

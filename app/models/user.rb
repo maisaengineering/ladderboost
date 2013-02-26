@@ -47,6 +47,7 @@ class User
 
   # Fields-------------------------------------------------------------
   field :name, :type => String
+  field :role
   ##Omniauthable
   field :provider
   field :facebook_uid
@@ -58,12 +59,14 @@ class User
 
   # Setup accessible (or protected) attributes for your model----------
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at ,
-                  :provider,:facebook_uid,:linkedin_uid
+                  :provider,:facebook_uid,:linkedin_uid ,:role
 
   # VALIDATIONS -------------------------------------------------------
   #validates_presence_of :name
-
+  validates :role ,presence: true
   # Constansts Or Class variable---------------------------------------
+  ROLE = %w(Mentor Mentee Both)
+
   # Associations  -----------------------------------------------------
   embeds_one :profile
   embeds_many :educations
@@ -102,8 +105,15 @@ class User
     end
 
 
-end
+  end
 
 # Instance  Methods --------------------------------------------------
+#generates instance methods like  user.mentor? user.mentee?
+  ROLE.each do |role|
+    define_method "#{role.downcase}?" do
+      self.role.eql?(role)
+    end
+  end
+
 # Private or Protected Methods----- ----------------------------------
 end
