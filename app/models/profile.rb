@@ -38,6 +38,7 @@ class Profile
   validates_attachment :avatar,
                        :content_type => { :content_type => ['image/jpeg', 'image/png','image/jpg','image/gif'] },
                        :size => { :in => 0..5.megabytes }
+  validates :birth_day, presence: true
 
   # Constants Or Class variable---------------------------------------
 
