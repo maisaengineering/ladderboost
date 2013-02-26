@@ -1,6 +1,5 @@
 Ladderboost::Application.routes.draw do
 
-
   authenticated :user do
     root :to => 'home#index'
   end
@@ -18,6 +17,7 @@ Ladderboost::Application.routes.draw do
   resources :users  do
     resource :profile
     resources :educations  , controller: 'users/educations'
+    resources :professional_industries  , controller: 'users/professional_industries'
   end
 
   match "/my_account" => "users#show",as: :my_account

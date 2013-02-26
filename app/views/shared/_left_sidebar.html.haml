@@ -3,6 +3,7 @@
     %ul.nav.nav-list
       %li.nav-header Account Settings
       = active_link_to 'Education',user_educations_path(current_user) , wrap_tag: :li
+      = active_link_to 'Professional Industries',user_professional_industries_path(current_user) , wrap_tag: :li
       %li
         %a{:href => "#"} Link
       %li
