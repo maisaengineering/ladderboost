@@ -77,7 +77,7 @@ class User
   # Call Backs---------------------------------------------------------
   #collection checkboxes returning empty element ['mentor',''] remove that
   #we can fix this in Rails 4 by issuing this  input_hidden: true   in form
-  before_save { |record| roles.reject!(&:blank?) }
+  before_validation { |record| roles.reject!(&:blank?) if roles.present? }
 
   # Class Methods Or Scopes -------------------------------------------
   #Omniauth instance methods

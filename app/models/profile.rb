@@ -36,12 +36,12 @@ class Profile
                             path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
   # VALIDATIONS -------------------------------------------------------
   validates :first_name,:last_name, presence: true
-  validates :role,presence: true ,if: Proc.new{|r| r.new_record? }
   validates_attachment :avatar,
                        :content_type => { :content_type => ['image/jpeg', 'image/png','image/jpg','image/gif'] },
                        :size => { :in => 0..5.megabytes }
   validates :birth_day, presence: true
 
+  validate :roles_if_not_assigned
   # Constants Or Class variable---------------------------------------
 
   # Associations  -----------------------------------------------------
@@ -49,20 +49,25 @@ class Profile
   embedded_in :user
 
   # Call Backs---------------------------------------------------------
+  before_validation { |record| roles.reject!(&:blank?) if roles.present? }
   after_save :assign_role
 
   before_save :titleize_attributes
   # Class Methods Or Scopes -------------------------------------------
 
   # Instance  Methods --------------------------------------------------
+  def roles_if_not_assigned
+    errors.add(:roles,"can't be blank") if self.user.roles.blank? and self.roles.blank?
+  end
+
   def assign_role
     #update role of the user if not assigned already(signup via omniauth)
-    user.update_attribute(:roles, self.roles) if self.roles.present? and user.roles.nil?
+    user.update_attribute(:roles, self.roles) if self.roles.present? and user.roles.blank?
   end
 
   def titleize_attributes
     %w(first_name last_name).each do |attr|
-       self.send("#{attr}=", self.send(attr).titleize)
+      self.send("#{attr}=", self.send(attr).titleize)
     end
   end
 

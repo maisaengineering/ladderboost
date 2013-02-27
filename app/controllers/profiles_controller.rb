@@ -35,7 +35,7 @@ class ProfilesController < ApplicationController
   # PUT /users/:user_id/profile.json
 
   def update
-    if @profile.update_attributes(params[:profile])
+    if @profile.update_attributes!(params[:profile])
       redirect_to my_account_path, notice: 'Profile was successfully updated.'
     else
       render action: "edit"

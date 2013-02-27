@@ -32,8 +32,7 @@
             = render 'shared/navigation'
           .nav-collapse
             %ul.nav
-              %li.active
-                %a{:href => "#"} Home
+              = active_link_to 'Home', root_path, wrap_tag: :li
               %li
                 %a{:href => "#about"} About
               %li
