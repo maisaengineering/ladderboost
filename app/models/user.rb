@@ -47,7 +47,7 @@ class User
 
   # Fields-------------------------------------------------------------
   field :name, :type => String
-  field :role
+  field :roles ,:type=>Array
   ##Omniauthable
   field :provider
   field :facebook_uid
@@ -59,15 +59,15 @@ class User
 
   # Setup accessible (or protected) attributes for your model----------
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at ,
-                  :provider,:facebook_uid,:linkedin_uid ,:role
+                  :provider,:facebook_uid,:linkedin_uid ,:roles
 
   # VALIDATIONS -------------------------------------------------------
   #validates_presence_of :name
 
   #skip if logged in from omniauth and prompt it to fill in profile
-  validates :role ,presence: true,if: Proc.new { |r| r.provider.nil? }
+  validates :roles ,presence: true,if: Proc.new { |r| r.provider.nil? }
   # Constansts Or Class variable---------------------------------------
-  ROLE = %w(Mentor Mentee Both)
+  ROLES = %w(Mentor Mentee)
 
   # Associations  -----------------------------------------------------
   embeds_one :profile
@@ -75,13 +75,12 @@ class User
   embeds_many :professional_industries
 
   # Call Backs---------------------------------------------------------
+  #collection checkboxes returning empty element ['mentor',''] remove that
+  #we can fix this in Rails 4 by issuing this  input_hidden: true   in form
+  before_save { |record| roles.reject!(&:blank?) }
 
   # Class Methods Or Scopes -------------------------------------------
   #Omniauth instance methods
-  #----------------------------------------------------------------------------------------------------------------------
-  #--- Devise with Omniauth follow below -----------------
-  # https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
-  # for facebook followed https://github.com/mkdynamic/omniauth-facebook
   class << self
     def new_with_session(params, session)
       super.tap do |user|
@@ -111,11 +110,16 @@ class User
   end
 
 # Instance  Methods --------------------------------------------------
+
 #generates instance methods like  user.mentor? user.mentee?
-  ROLE.each do |role|
+  ROLES.each do |role|
     define_method "#{role.downcase}?" do
-      self.role.eql?(role)
+      self.roles.include?(role)
     end
+  end
+#TODO generate this method dynamically
+  def mentor_and_mentee?
+    self.roles.eql? %w(Mentor Mentee)
   end
 
 # Private or Protected Methods----- ----------------------------------

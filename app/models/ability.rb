@@ -6,7 +6,9 @@ class Ability
       can :manage ,:all
     elsif user.metee?
       can :manage, :all
-    else #both
+    elsif mentor_and_mentee?
+      can :manage, :all
+    else # Guest
       can :manage, :all
     end
 

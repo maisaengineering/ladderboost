@@ -27,7 +27,7 @@ class Profile
   index({ first_name: 1 },{background: true})
   index({ last_name: 1 },{background: true})
   # Setup accessible (or protected) attributes for your model----------
-  attr_accessor :role
+  attr_accessor :roles
   has_mongoid_attached_file :avatar, styles: {medium: "100x100>",
                                               small: "25x25>",
                                               large: "200x200>"},
@@ -57,7 +57,7 @@ class Profile
   # Instance  Methods --------------------------------------------------
   def assign_role
     #update role of the user if not assigned already(signup via omniauth)
-    user.update_attribute(:role, self.role) if self.role.present? and user.role.nil?
+    user.update_attribute(:roles, self.roles) if self.roles.present? and user.roles.nil?
   end
 
   def titleize_attributes
