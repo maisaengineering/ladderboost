@@ -1,7 +1,7 @@
 - if user_signed_in?
   %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
     - if current_user.profile?
-      = image_tag(current_user.profile.avatar.url(:small),height: 25,width: 25)
+      = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
     - else
       %i.icon-user
     = current_user.profile.try(:name).present? ? current_user.profile.name : current_user.name

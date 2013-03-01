@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   #GET account_path(user) or
   def show
     @user = current_user
+    @educations = current_user.educations
+    @professional_industries = current_user.professional_industries
   end
 
 end

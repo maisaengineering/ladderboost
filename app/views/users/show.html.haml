@@ -41,4 +41,69 @@
           =# link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_profile_path(@user), class: 'btn btn-info'
           =# link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+%p
+  %a.btn.btn-primary.btn-large{"data-toggle" => "modal","data-target" => "#myModal", :href => new_user_education_path(current_user) } Add New Education
+.well
+  %table.table
+    %thead
+      %tr
+        %th Education Details
+    %tbody
+      - if @educations.blank?
+        %tr
+          %td{colspan: '2'}
+            %p.text-error No Educations found
+      - else
+        - @educations.each do |education|
+          %tr
+            %td
+              .row_content_large= education.school_name
+              .row_content_medium=  education.degree
+              .row_content_small
+                =  education.education_start_date
+                \-- #{education.education_end_date}
+            %td.edit_align
+              %a{href: edit_user_education_path(current_user,education) }
+                %i.icon-edit &nbsp;edit
+%p
+  %a.btn.btn-primary.btn-large{"data-toggle" => "modal", "data-target" => "#myModal", :href => new_user_professional_industry_path(current_user) } Add New Profession
+.well
+  %table.table
+    %thead
+      %tr
+        %th Professional Industries Details
+    %tbody
+      - if @professional_industries.blank?
+        %tr
+          %td{colspan: '2'}
+            %p.text-error No Profession Industries Details found
+      - else
+        - @professional_industries.each do |professional_industries|
+          %tr
+            %td
+              .row_content_large= professional_industries.company_name
+              .row_content_medium=  professional_industries.title
+              .row_content_small
+                =  professional_industries.start_date
+                \-- #{professional_industries.end_date}
+            %td.edit_align
+              %a{href: edit_user_professional_industry_path(current_user,professional_industries) }
+                %i.icon-edit &nbsp;edit
+#myModal.modal.fade.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Add Details
+  .modal-body
+    %p One fine body…
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+    -#%button.btn.btn-primary  Save
+
+
+
+
+
+
+
+
 

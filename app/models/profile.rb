@@ -1,7 +1,10 @@
 class Profile
+  #require 'carrierwave/orm/mongoid'
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Paperclip
+  #include Mongoid::Paperclip
+  #include Mongoid::CarrierWave
+
 
   # Fields-----------------------------------------------------------
   field :first_name
@@ -11,6 +14,7 @@ class Profile
   field :phone_number
   field :birth_day
   field :gender
+  field :role
 
   #address
   field :location
@@ -23,22 +27,26 @@ class Profile
   #
   field :interests
 
+  # image
+  field :image, type: String
+  mount_uploader :image, ImageUploader
+
   # Setup Indexes on DB -----------------------------------------------
   index({ first_name: 1 },{background: true})
   index({ last_name: 1 },{background: true})
   # Setup accessible (or protected) attributes for your model----------
   attr_accessor :roles
-  has_mongoid_attached_file :avatar, styles: {medium: "100x100>",
-                                              small: "25x25>",
-                                              large: "200x200>"},
-                            default_url: '/assets/avatars/:style/missing.png',
-                            url: "/avatars/:id/:style/:basename.:extension",
-                            path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
+  #has_mongoid_attached_file :avatar, styles: {medium: "100x100>",
+  #                                            small: "25x25>",
+  #                                            large: "200x200>"},
+  #                          default_url: '/assets/avatars/:style/missing.png',
+  #                          url: "/avatars/:id/:style/:basename.:extension",
+  #                          path: ":rails_root/public/avatars/:id/:style/:basename.:extension"
   # VALIDATIONS -------------------------------------------------------
   validates :first_name,:last_name, presence: true
-  validates_attachment :avatar,
-                       :content_type => { :content_type => ['image/jpeg', 'image/png','image/jpg','image/gif'] },
-                       :size => { :in => 0..5.megabytes }
+  #validates_attachment :avatar,
+  #                     :content_type => { :content_type => ['image/jpeg', 'image/png','image/jpg','image/gif'] },
+  #                     :size => { :in => 0..5.megabytes }
   validates :birth_day, presence: true
 
   validate :roles_if_not_assigned
@@ -57,6 +65,7 @@ class Profile
 
   # Instance  Methods --------------------------------------------------
   def roles_if_not_assigned
+    #raise self.user.inspect
     errors.add(:roles,"can't be blank") if self.user.roles.blank? and self.roles.blank?
   end
 

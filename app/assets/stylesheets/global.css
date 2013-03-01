@@ -1,12 +1,12 @@
 .row_content_large {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
 }
 .row_content_medium {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
 }
 .row_content_small {
     color: #999;
-    font-size: 13px;
+    font-size: 11px;
 }

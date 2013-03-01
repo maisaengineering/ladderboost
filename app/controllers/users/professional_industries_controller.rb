@@ -9,16 +9,21 @@ class Users::ProfessionalIndustriesController < ApplicationController
     @professional_industries = current_user.professional_industries
   end
 
-  def new ; end
+  def new
+    render :layout => false
+  end
 
   def edit; end
 
   def create
     @professional_industry = current_user.professional_industries.build(params[:professional_industry])
-    if @professional_industry.save
-      redirect_to  user_professional_industries_path(current_user), notice: 'Professional Industry was successfully.'
-    else
-      render action: "new"
+    respond_to do |format|
+      if @professional_industry.save
+        format.html{redirect_to  user_professional_industries_path(current_user), notice: 'Professional Industry was successfully.'}
+      else
+        format.html{render action: "new"}
+        format.js
+      end
     end
   end
 

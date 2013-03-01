@@ -1,4 +1,4 @@
-= simple_form_for([current_user,@education],html: {class: 'form-horizontal'}) do |f|
+= simple_form_for([current_user,@education],html: {class: 'form-horizontal'}, :remote => true) do |f|
   .form-inputs
     = f.error_notification
     = f.input :school_name ,label: 'School / College'

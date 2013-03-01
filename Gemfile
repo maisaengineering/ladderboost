@@ -63,6 +63,8 @@ gem 'cancan'
 gem "figaro", ">= 0.5.3"
 gem "libv8", ">= 3.11.8"
 gem 'heroku'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'rmagick'
 
 
 
