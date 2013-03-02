@@ -15,7 +15,9 @@ class Users::EducationsController < ApplicationController
     render :layout => false
   end
 
-  def edit; end
+  def edit
+    render :layout => false
+  end
 
   def create
     @education = current_user.educations.build(params[:education])
@@ -31,10 +33,15 @@ class Users::EducationsController < ApplicationController
   end
 
   def update
-    if @education.update_attributes(params[:education])
-      redirect_to  user_educations_path(current_user), notice: 'Education was updated successfully.'
-    else
-      render action: "edit"
+    #@education = Education.find(params[:education])
+    respond_to do |format|
+      if @education.update_attributes(params[:education])
+        format.html{redirect_to  "/my_account", notice: 'Education was updated successfully.'}
+        format.js
+      else
+        format.html{render action: "edit"}
+        format.js
+      end
     end
   end
 

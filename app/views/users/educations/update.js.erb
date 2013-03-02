@@ -1,6 +1,6 @@
 <% if @education.errors.any? %>
 
-    $(".modal-body").html("<%= escape_javascript(render 'form',button_name: 'Save')  %>");
+$(".modal-body").html("<%= escape_javascript(render 'form',button_name: 'Update')  %>");
 <% else %>
 
 $('#myModal').modal('hide') ;

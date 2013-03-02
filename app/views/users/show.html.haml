@@ -37,17 +37,17 @@
         %td Last Sign in IP
         %td= @user.last_sign_in_ip
       %tr
-        %td{colspan: 2,style: 'margin-top: 15px;text-align: right;'}
+        %td.edit-align{colspan: 2,style: 'margin-top: 15px; text-align: right;'}
           =# link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_profile_path(@user), class: 'btn btn-info'
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_profile_path(@user), class: 'btn btn-info btn-mini'
           =# link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-%p
-  %a.btn.btn-primary.btn-large{"data-toggle" => "modal","data-target" => "#myModal", :href => new_user_education_path(current_user) } Add New Education
 .well
   %table.table
     %thead
       %tr
         %th Education Details
+        %th.pull-right
+          %a.btn.btn-info.btn-small{"data-toggle" => "modal","data-target" => "#myModal", :href => new_user_education_path(current_user) } Add New Education
     %tbody
       - if @educations.blank?
         %tr
@@ -62,16 +62,17 @@
               .row_content_small
                 =  education.education_start_date
                 \-- #{education.education_end_date}
-            %td.edit_align
-              %a{href: edit_user_education_path(current_user,education) }
-                %i.icon-edit &nbsp;edit
-%p
-  %a.btn.btn-primary.btn-large{"data-toggle" => "modal", "data-target" => "#myModal", :href => new_user_professional_industry_path(current_user) } Add New Profession
+            %td.edit_align{:style => "text-align:right;"}
+              %p
+                %a.btn.btn-info.btn-mini{"data-toggle" => "modal","data-target" => "#myModal", :href => edit_user_education_path(current_user,education) } Edit
 .well
   %table.table
     %thead
       %tr
         %th Professional Industries Details
+        %th.pull-right
+          %a.btn.btn-info.btn-small{"data-toggle" => "modal", "data-target" => "#myModal", :href => new_user_professional_industry_path(current_user) } Add New Profession
+
     %tbody
       - if @professional_industries.blank?
         %tr
@@ -86,9 +87,10 @@
               .row_content_small
                 =  professional_industries.start_date
                 \-- #{professional_industries.end_date}
-            %td.edit_align
-              %a{href: edit_user_professional_industry_path(current_user,professional_industries) }
-                %i.icon-edit &nbsp;edit
+            %td.edit_align{:style => "text-align:right;"}
+              %p
+                %a.btn.btn-info.btn-mini{"data-toggle" => "modal","data-target" => "#myModal", :href => edit_user_professional_industry_path(current_user,professional_industries) } Edit
+
 #myModal.modal.fade.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
@@ -98,6 +100,8 @@
   .modal-footer
     %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
     -#%button.btn.btn-primary  Save
+
+
 
 
 
