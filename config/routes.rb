@@ -1,5 +1,8 @@
 Ladderboost::Application.routes.draw do
 
+  resources :organization_profiles
+
+
   authenticated :user do
     root :to => 'home#index'
   end

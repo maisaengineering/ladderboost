@@ -22,6 +22,7 @@ class Users::ProfessionalIndustriesController < ApplicationController
     respond_to do |format|
       if @professional_industry.save
         format.html{redirect_to  user_professional_industries_path(current_user), notice: 'Professional Industry was successfully.'}
+        format.js
       else
         format.html{render action: "new"}
         format.js

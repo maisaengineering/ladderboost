@@ -1,0 +1,17 @@
+%h1 Listing organization_profiles
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @organization_profiles.each do |organization_profile|
+    %tr
+      %td= link_to 'Show', organization_profile
+      %td= link_to 'Edit', edit_organization_profile_path(organization_profile)
+      %td= link_to 'Destroy', organization_profile, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Organization profile', new_organization_profile_path

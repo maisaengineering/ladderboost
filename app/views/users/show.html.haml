@@ -98,35 +98,38 @@
     %h3#myModalLabel Add Details
   .modal-body
     %p One fine body…
-  .modal-footer
-    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-    %button.btn.btn-primary  Save
-%script{:src => "http://code.jquery.com/jquery-latest.js", :type => "text/javascript"}
-:javascript
-  $(document).ready(function() {
-      var x;
-      $("a").click(function(event) {
-
-          var href = $(this).attr('href');
-           x = href.split("/");
-
-
-      });
-      $(".btn.btn-primary").click(function(event){
-
-        if(x[3]=="educations")
-        {
-
-         $("#new_education").submit();
-         }
-         else
-         {
-
-          $("#new_professional_industry").submit();
-         }
-
-      });
-  });
+  -#.modal-footer
+  -#  %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+  -#  %button.btn.btn-primary  Save
+-#%script{:src => "http://code.jquery.com/jquery-latest.js", :type => "text/javascript"}
+-#:javascript
+-#  $(document).ready(function() {
+-#      var x;
+-#      $("a").click(function(event) {
+-#
+-#          var href = $(this).attr('href');
+-#           x = href.split("/");
+-#
+-#
+-#      });
+-#      $(".btn.btn-primary").click(function(event){
+-#       var selected_transgenic_id = $(this).attr("id");
+-#              alert(selected_transgenic_id);
+-#        alert(x[3]);
+-#        if(x[3]=="educations")
+-#        {
+-#        alert("xxxxxxxxxxxxxxxxx");
+-#
+-#         $("#new_education").submit();
+-#         }
+-#         else
+-#         {
+-#
+-#          $("#new_professional_industry").submit();
+-#         }
+-#
+-#      });
+-#  });
 
 
 

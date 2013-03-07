@@ -12,8 +12,9 @@
     = f.input :additional_notes,as: :text ,label: 'Notes (if any)',
                input_html:{rows: 3 }
 
-  -#.form-actions
-  -#  = f.button :submit ,button_name,class: 'btn-info'
+  .form-actions
+    = f.button :submit ,button_name,class: 'btn-info'
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
 
 
 

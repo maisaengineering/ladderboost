@@ -1,4 +1,5 @@
 class Profile
+
   #require 'carrierwave/orm/mongoid'
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -26,10 +27,19 @@ class Profile
 
   #
   field :interests
+  field :aspirations
+  field :affiliations
 
   # image
   field :image, type: String
   mount_uploader :image, ImageUploader
+
+  #for progress bar
+  #define_completeness_scoring do
+  #  check :interests,       lambda { |per| per.interests.present? }, 2
+  #  check :aspirations, lambda { |per| per.aspirations.present? }, 1
+  #  check :main_image,  lambda { |per| per.affiliations.present? },1
+  #end
 
   # Setup Indexes on DB -----------------------------------------------
   index({ first_name: 1 },{background: true})
@@ -82,6 +92,16 @@ class Profile
 
   def name
     "#{first_name} #{last_name}"
+  end
+  # below method is used for progress bar in profile page
+  def complete_percentage()
+    percentage = 0
+    percentage += 20 if  interests.present?
+    percentage += 10 if  aspirations.present?
+    percentage += 10 if  affiliations.present?
+    percentage += 30 if  user.educations.present?
+    percentage += 30 if  user.professional_industries.present?
+    return percentage
   end
   # Private or Protected Methods----- ----------------------------------
 

@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_or_build_profile,except: [:create]
 
+
   # GET /users/:user_id/profile
   # GET /users/:user_id/profile.json
   def show; end
@@ -19,7 +20,9 @@ class ProfilesController < ApplicationController
   end
 
   # GET /users/:user_id/profile/edit
-  def edit; end
+    def edit
+
+   end
 
   #POST /users/:user_id/profile
   def create

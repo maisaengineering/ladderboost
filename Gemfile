@@ -65,6 +65,10 @@ gem "libv8", ">= 3.11.8"
 gem 'heroku'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'rmagick'
+#below gem is for progress bar
+#gem 'completeness-fu'
+gem 'css3-progress-bar-rails'
+gem 'twitter-bootstrap-calendar'
 
 
 

@@ -1,18 +1,31 @@
+- unless  @profile.new_record?
+  .progress1{:style => "width: 30%;"}
+    Profile Completed
+    = progress_bar(@profile.complete_percentage(), :color => 'blue', :rounded => true)
+    = @profile.complete_percentage
+    \ %
 = simple_form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
   .form-inputs
     = f.error_notification
     .form-inputs.row
-      = f.input :first_name, wrapper_html: {class: 'span4'}
-      = f.input :last_name, wrapper_html: {class: 'span4'}
+      = f.input :first_name
+      = f.input :last_name
     .form-inputs.row
-      = f.input :phone_number, wrapper_html: {class: 'span4'}
-      = f.input :birth_day, wrapper_html: {class: 'span4'},input_html: {id: 'dt5', disable: 'true'}
+      = f.input :phone_number
+      = f.input :birth_day,input_html: {id: 'dt5', disable: 'true'}
     .form-inputs.row
-      = f.input :professional_headline,placeholder: 'Software Engineer,Designer', wrapper_html: {class: 'span4'}
-      = f.input :location, wrapper_html: {class: 'span4'}
+      = f.input :professional_headline,placeholder: 'Software Engineer,Designer'
+      = f.input :location
     .form-inputs.row
-      = f.input :city, wrapper_html: {class: 'span4'}
-      = f.input :state, :as => :string, wrapper_html: {class: 'span4'}
+      = f.input :city
+      = f.input :state, :as => :string
+    .form-inputs.row
+      = f.input :interests,as: :text,hint: "Examples: Sports, News, Politics, World Affairs, Economics, etc.." ,
+                 input_html:{rows: 3  }
+      = f.input :aspirations,as: :text,hint: "Examples: Professional, personal, etc.." ,
+                 input_html:{rows: 3 }
+      = f.input :affiliations,as: :text,hint: "Examples: School, organizations, etc.." ,
+                  input_html:{rows: 3 }
     - if current_user.roles.blank?#if signed-in via omniauth capture the role here
       .form-inputs.row
         = f.input :roles,as: :check_boxes ,collection: User::ROLES, wrapper_html: {class: 'span4'},label: 'I am'
@@ -23,6 +36,7 @@
 
     =# f.input :avatar
     = f.file_field :image
+
 
   .form-actions
     = f.button :submit ,button_name,class: 'btn-info'

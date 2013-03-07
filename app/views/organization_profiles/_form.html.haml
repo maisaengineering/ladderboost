@@ -1,0 +1,16 @@
+= simple_form_for(@organization_profile,html: {class: 'form-horizontal', multipart: 'true'}) do |f|
+
+  .form-inputs
+    = f.error_notification
+    .form-inputs.row
+      = f.input :name
+      = f.input :location
+    .form-inputs.row
+      = f.input :mission
+      = f.input :summary
+    .form-inputs.row
+      = f.input :organization_administrator
+      = f.file_field :upload_logo
+
+  .form-actions
+    = f.button :submit , class: 'btn-info'
