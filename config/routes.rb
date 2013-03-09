@@ -18,6 +18,10 @@ Ladderboost::Application.routes.draw do
   end
 
   resources :users  do
+    collection do
+
+      get 'follow'
+    end
     resource :profile
     resources :educations  , controller: 'users/educations'
     resources :professional_industries  , controller: 'users/professional_industries'

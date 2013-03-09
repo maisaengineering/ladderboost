@@ -69,6 +69,8 @@ gem 'rmagick'
 #gem 'completeness-fu'
 gem 'css3-progress-bar-rails'
 gem 'twitter-bootstrap-calendar'
+#below gem is for following and follow
+gem 'mongoid_follow'
 
 
 
