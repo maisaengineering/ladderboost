@@ -1,10 +1,10 @@
 - unless  @profile.new_record?
-  .progress1{:style => "width: 30%;"}
+  .container
     Profile Completed
-    = progress_bar(@profile.complete_percentage(), :color => 'blue', :rounded => true)
-    = @profile.complete_percentage
-    \ %
+    .progress{:style => "width:400px;"}
+      .bar{:style => "width: 0%;"}
 = simple_form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
+
   .form-inputs
     = f.error_notification
     .form-inputs.row
@@ -50,3 +50,19 @@
     $('#dt5').datepicker('hide');
   });
    });
+:javascript
+  $(window).load(function(){
+  var progress = setInterval(function() {
+      var $bar = $('.bar');
+
+      if ($bar.width()==400) {
+          clearInterval(progress);
+          $('.progress').removeClass('active');
+      } else {
+          $bar.width("#{@profile.complete_percentage}"* 4);
+      }
+      $bar.text("#{@profile.complete_percentage}" + "%");
+  }, 800);
+
+
+  });

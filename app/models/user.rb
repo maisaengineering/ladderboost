@@ -125,7 +125,7 @@ class User
   end
 
   def sample_method(mentor, mentee)
-      mentor.follow(mentee)
+      mentor.follow?(mentee)
   end
 
 
