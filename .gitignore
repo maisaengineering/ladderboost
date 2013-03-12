@@ -27,6 +27,9 @@ db/*.sqlite3
 /public/assets
 /public/avatars
 
+#ignore uploads
+/public/uploads
+
 # various artifacts
 **.war
 *.rbc

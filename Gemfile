@@ -67,8 +67,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'rmagick'
 #below gem is for progress bar
 #gem 'completeness-fu'
-gem 'css3-progress-bar-rails'
-gem 'twitter-bootstrap-calendar'
+
 #below gem is for following and follow
 gem 'mongo_followable'
 
