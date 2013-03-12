@@ -1,8 +1,9 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Followee
-  include Mongoid::Follower
+
+  include Mongo::Followable::Followed
+  include Mongo::Followable::Follower
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -123,11 +124,6 @@ class User
   def mentor_and_mentee?
     self.roles.eql? %w(Mentor Mentee)
   end
-
-  def sample_method(mentor, mentee)
-      mentor.follow(mentee)
-  end
-
 
 # Private or Protected Methods----- ----------------------------------
 end

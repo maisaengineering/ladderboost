@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '1.9.3' #for heroku deployment with mongoId
-gem 'rails', '3.2.11'
+
+gem 'rails', '3.2.12'
 
 
 group :assets do
@@ -70,7 +70,7 @@ gem 'rmagick'
 gem 'css3-progress-bar-rails'
 gem 'twitter-bootstrap-calendar'
 #below gem is for following and follow
-gem 'mongoid_follow'
+gem 'mongo_followable'
 
 
 

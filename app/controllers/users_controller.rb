@@ -9,11 +9,10 @@ class UsersController < ApplicationController
   end
 
   def follow
-    mentor = @current_user._id
-     #mentee = User.where(:_id => params[:id])
-     mentee = params[:id]
-     @ment = User.new.sample_method(mentor, mentee)
-    redirect_to("/my_account")
+   # find the user by following id
+   # user = User.find(params[:id])
+   #current_user.follow(user)
+
   end
 
   #GET account_path(user) or
