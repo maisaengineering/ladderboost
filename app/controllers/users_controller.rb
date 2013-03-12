@@ -9,10 +9,16 @@ class UsersController < ApplicationController
   end
 
   def follow
-   # find the user by following id
-   # user = User.find(params[:id])
-   #current_user.follow(user)
+   user = User.find(params[:id])
+   current_user.follow(user)
+    redirect_to("/my_account")
 
+  end
+
+  def unfollow
+    user = User.find(params[:id])
+    current_user.unfollow(user)
+    redirect_to("/my_account")
   end
 
   #GET account_path(user) or
@@ -20,6 +26,10 @@ class UsersController < ApplicationController
     @user = current_user
     @educations = current_user.educations
     @professional_industries = current_user.professional_industries
+    @users = User.all
+    @followers =User.followers_of(current_user)
+    @following = User.followees_of(current_user)
+
   end
 
 end

@@ -130,6 +130,36 @@
 -#
 -#      });
 -#  });
+.tabbable
+  / Only required for left/right tabs
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#tab1"} Lists
+    %li
+      %a{"data-toggle" => "tab", :href => "#tab2"} Following
+    %li
+      %a{"data-toggle" => "tab", :href => "#tab3"} Followers
+  .tab-content
+    #tab1.tab-pane.active
+      - @users.in_groups_of(2, false) do |row_tasks|
+        %table
+          %tr
+            - for task in row_tasks
+              %td= task.name
+              %td
+                = link_to "follow",:action => :follow, :id => task._id
+    #tab2.tab-pane
+      - @following.in_groups_of(2, false) do |row_tasks|
+        %table
+          %tr
+            - for task in row_tasks
+              %td= task.name
+              %td
+                = link_to "unfollow",:action => :unfollow, :id => task._id
+    #tab3.tab-pane
+      - @followers.each do |follow|
+        =  follow.name
+
 
 
 
