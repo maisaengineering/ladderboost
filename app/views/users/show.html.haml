@@ -141,24 +141,66 @@
       %a{"data-toggle" => "tab", :href => "#tab3"} Followers
   .tab-content
     #tab1.tab-pane.active
-      - @users.in_groups_of(2, false) do |row_tasks|
-        %table
+      - @users.in_groups_of(2, false) do |total_lists|
+        %table{:width => "1500px"}
           %tr
-            - for task in row_tasks
-              %td= task.name
+            - for lists in total_lists
               %td
-                = link_to "follow",:action => :follow, :id => task._id
+                %table
+                  %tr
+                    -unless lists.profile.blank?
+                      -unless lists.profile.image.url.blank?
+                        %td= image_tag(lists.profile.image.url(:thumb),height: 60,width: 60, class: 'img-circle' )
+                      -else
+                        %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+                    -else
+                      %td= ""
+                      %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+              %td
+                %table
+                  %tr
+                    %td= button_to "Follow", {:controller => :users, :action => :follow, :remote => true, :id => lists._id}, :class => "btn"
+                    -#%td= link_to "follow",:action => :follow, :id => lists._id
+
     #tab2.tab-pane
-      - @following.in_groups_of(2, false) do |row_tasks|
-        %table
+      - @following.in_groups_of(2, false) do |following|
+        %table{:width => "1500px"}
           %tr
-            - for task in row_tasks
-              %td= task.name
+            - for following_data in following
               %td
-                = link_to "unfollow",:action => :unfollow, :id => task._id
+                %table
+                  %tr
+                    -unless following_data.profile.blank?
+                      -unless following_data.profile.image.url.blank?
+                        %td= image_tag(following_data.profile.image.url(:thumb),height: 60,width: 60, class: 'img-circle' )
+                      -else
+                        %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+                    -else
+                      %td= ""
+                      %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+              %td
+                %table
+                  %tr
+                    %td= button_to "Un Follow", {:controller => :users, :action => :unfollow, :remote => true, :id => following_data._id}, :class => "btn"
+                    -#%td= link_to "unfollow",:action => :unfollow, :id => following_data._id
     #tab3.tab-pane
-      - @followers.each do |follow|
-        =  follow.name
+      - @followers.in_groups_of(2, false) do |followers|
+        %table{:width => "1500px"}
+          %tr
+            - for followers_data in followers
+              %td
+                %table
+                  %tr
+                    -unless followers_data.profile.blank?
+                      -unless followers_data.profile.image.url.blank?
+                        %td= image_tag(followers_data.profile.image.url(:thumb),height: 60,width: 60, class: 'img-circle' )
+                      -else
+                        %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+              %td
+                %table
+                  %tr
+                    %td= followers_data.name
+
 
 
 

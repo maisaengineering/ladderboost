@@ -29,8 +29,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
    def default_url
      #asset_path("avatars/" + [small, "missing.png"].compact.join('_'))
-     "#{Rails.root}/assets/images/avatars/small/missing.png"
-     #"/images/fallback/" + [small, "small_avatar_default.png"].compact.join('_')
+     #"#{Rails.root}/assets/images/avatars/small/missing.png"
+     #"/assets/images/avatars/" + [small, "missing.png"].compact.join('_')
      #"/images/fallback/" + [medium, "medium_avatar_default.png"].compact.join('_')
      #"/images/fallback/" + [large, "large_avatar_default.png"].compact.join('_')
    end

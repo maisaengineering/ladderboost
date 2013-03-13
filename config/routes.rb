@@ -20,8 +20,8 @@ Ladderboost::Application.routes.draw do
   resources :users  do
     collection do
 
-      get 'follow'
-      get 'unfollow'
+      post 'follow'
+      post 'unfollow'
     end
     resource :profile
     resources :educations  , controller: 'users/educations'
