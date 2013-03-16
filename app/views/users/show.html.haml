@@ -142,23 +142,29 @@
   .tab-content
     #tab1.tab-pane.active
       - @users.in_groups_of(2, false) do |total_lists|
-        %table{:width => "1500px"}
+        %table
           %tr
             - for lists in total_lists
-              %td
+              %td{:width => "380px"}
                 %table
                   %tr
                     -unless lists.profile.blank?
                       -unless lists.profile.image.url.blank?
                         %td= image_tag(lists.profile.image.url(:thumb),height: 60,width: 60, class: 'img-circle' )
+
                       -else
-                        %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+                        %td= image_tag("avatars/small/missing.png",height: 60,width: 60, class: 'img-circle')
+
                     -else
                       %td= ""
-                      %td= image_tag("avatars/small/missing.png", class: 'img-circle')
+                      %td= image_tag("avatars/small/missing.png",height: 60,width: 60, class: 'img-circle')
+                    %td
+                      %p=lists.name
+                      %p Followers #{@no_of_followers = User.no_of_users_followers(lists._id)} Following #{@no_of_following = User.no_of_users_following(lists._id)}
               %td
                 %table
                   %tr
+
                     %td= button_to "Follow", {:controller => :users, :action => :follow, :remote => true, :id => lists._id}, :class => "btn"
                     -#%td= link_to "follow",:action => :follow, :id => lists._id
 
@@ -167,7 +173,7 @@
         %table{:width => "1500px"}
           %tr
             - for following_data in following
-              %td
+              %td{:width => "380px"}
                 %table
                   %tr
                     -unless following_data.profile.blank?
@@ -188,7 +194,7 @@
         %table{:width => "1500px"}
           %tr
             - for followers_data in followers
-              %td
+              %td{:width => "380px"}
                 %table
                   %tr
                     -unless followers_data.profile.blank?

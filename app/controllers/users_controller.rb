@@ -21,6 +21,13 @@ class UsersController < ApplicationController
     redirect_to("/my_account")
   end
 
+  #def check_follow(check,current_user)
+  #  puts  "-----------------------"
+  #  current_user.follower_of?(check)
+  #  puts "--------------------------"
+  #
+  #end
+
   #GET account_path(user) or
   def show
     @user = current_user
@@ -29,6 +36,9 @@ class UsersController < ApplicationController
     @users = User.all
     @followers =User.followers_of(current_user)
     @following = User.followees_of(current_user)
+
+    #@no_of_followers = current_user.followers_count
+
 
   end
 

@@ -125,5 +125,24 @@ class User
     self.roles.eql? %w(Mentor Mentee)
   end
 
+  def self.no_of_users_followers(lists)
+
+    @users =  User.find(lists)
+
+       @users.followers_count
+
+
+  end
+
+  def self.no_of_users_following(lists)
+    @users =  User.find(lists)
+
+    @users.followees_count
+
+
+  end
+
+
+
 # Private or Protected Methods----- ----------------------------------
 end
