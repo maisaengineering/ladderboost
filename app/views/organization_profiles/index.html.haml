@@ -2,12 +2,22 @@
 
 %table
   %tr
+    %th Name
+    %th Location
+    %th Mission
+    %th Summary
+    %th  Organization Administrator
     %th
     %th
     %th
 
   - @organization_profiles.each do |organization_profile|
     %tr
+      %td= organization_profile.name
+      %td= organization_profile.location
+      %td= organization_profile.mission
+      %td= organization_profile.summary
+      %td= organization_profile.organization_administrator
       %td= link_to 'Show', organization_profile
       %td= link_to 'Edit', edit_organization_profile_path(organization_profile)
       %td= link_to 'Destroy', organization_profile, :method => :delete, :data => { :confirm => 'Are you sure?' }

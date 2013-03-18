@@ -4,6 +4,7 @@ class User
 
   include Mongo::Followable::Followed
   include Mongo::Followable::Follower
+  include Mongo::Followable::History
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -126,12 +127,28 @@ class User
   end
 
   def self.no_of_users_followers(lists)
-
     @users =  User.find(lists)
+     @users.followers_count
+  end
 
-       @users.followers_count
+  def self.get_profile_name(profile_data)
+    @user_profile = User.find(profile_data)
+    @user_profile.name
+  end
 
-
+  def self.check_follow(current_user, other_user)
+    #userid=  current_user._id
+    #
+    #puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    #puts userid
+    #puts other_user
+    #puts "xxxxxvcvvvvvvvvvvvvvvvvvvvvvvv"
+    #if other_user != userid
+    # #@follow = userid.follower_of?(other_user) if other_user != userid
+    # puts "-------------------"
+    #  puts @follow
+    #   puts "----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   # end
   end
 
   def self.no_of_users_following(lists)

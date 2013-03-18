@@ -13,7 +13,7 @@
         %table{:width => "1500px"}
           %tr
             - for lists in total_lists
-              %td
+              %td{:width => "324px"}
                 %table
                   %tr
                     -unless lists.profile.blank?
@@ -32,7 +32,11 @@
               %td
                 %table
                   %tr
-                    %td= button_to "Follow", {:controller => :users, :action => :follow, :id => lists._id}, :class => "btn"
+                    #{@follow = User.check_follow(@user,lists._id)}
+                    -if @follow
+                      %td= button_to "Following", {:controller => :users, :action => :follow, :id => lists._id}, :class => "btn"
+                    -else
+                      %td= button_to "Follow", {:controller => :users, :action => :follow, :id => lists._id}, :class => "btn"
                     -#%td= link_to "follow",:action => :follow, :id => lists._id
 
 
@@ -41,7 +45,7 @@
         %table{:width => "1500px"}
           %tr
             - for following_data in following
-              %td
+              %td{:width => "324px"}
                 %table
                   %tr
                     -unless following_data.profile.blank?
@@ -53,18 +57,19 @@
                       %td= ""
                       %td= image_tag("avatars/small/missing.png", height: 60,width: 60, class: 'img-circle')
                     %td
+                      %p #{@profile_name = User.get_profile_name(following_data._id)}
                       %p Followers #{@no_of_followers = User.no_of_users_followers(following_data._id)} Following #{@no_of_following = User.no_of_users_following(following_data._id)}
               %td
                 %table
                   %tr
-                    %td= button_to "Follow", {:controller => :users, :action => :unfollow, :id => following_data._id}, :class => "btn"
+                    %td= button_to "Un Follow", {:controller => :users, :action => :unfollow, :id => following_data._id}, :class => "btn"
 
     #tab3.tab-pane
       - @followers.in_groups_of(2, false) do |followers|
         %table{:width => "1500px"}
           %tr
             - for followers_data in followers
-              %td
+              %td{:width => "324px"}
                 %table
                   %tr
                     -unless followers_data.profile.blank?

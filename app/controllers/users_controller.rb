@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     @educations = current_user.educations
     @professional_industries = current_user.professional_industries
     @users = User.all
+
     @followers =User.followers_of(current_user)
     @following = User.followees_of(current_user)
 
@@ -51,6 +52,9 @@ class UsersController < ApplicationController
     @educations = current_user.educations
     @professional_industries = current_user.professional_industries
     @users = User.all
+   # @users.delete current_user
+   # @users = User.without_user(current_user)
+    #@users = User.find(:all, :conditions => ["id!= ?", current_user.id])
     @followers =User.followers_of(current_user)
     @following = User.followees_of(current_user)
   end
