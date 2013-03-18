@@ -2,23 +2,26 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_user_profile
 
-  before_filter { @no_sidebar = true }
+  before_filter  {@no_sidebar = true}
+
 
   def index
     @users = User.all
   end
 
   def follow
+    @no_sidebar = false
    user = User.find(params[:id])
    current_user.follow(user)
-    redirect_to("/my_account")
+    redirect_to("/public_profile")
 
   end
 
   def unfollow
+    @no_sidebar = false
     user = User.find(params[:id])
     current_user.unfollow(user)
-    redirect_to("/my_account")
+    redirect_to("/public_profile")
   end
 
   #def check_follow(check,current_user)
@@ -40,6 +43,16 @@ class UsersController < ApplicationController
     #@no_of_followers = current_user.followers_count
 
 
+  end
+
+  def public_profile
+    @no_sidebar = false
+    @user = current_user
+    @educations = current_user.educations
+    @professional_industries = current_user.professional_industries
+    @users = User.all
+    @followers =User.followers_of(current_user)
+    @following = User.followees_of(current_user)
   end
 
 end

@@ -29,5 +29,6 @@ Ladderboost::Application.routes.draw do
   end
 
   match "/my_account" => "users#show",as: :my_account
+  match "/public_profile" => "users#public_profile",as: :public_profile
 
 end
