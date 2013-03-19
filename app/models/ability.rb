@@ -3,14 +3,25 @@ class Ability
 
   def initialize(user)
     if user.mentor?
-      can :manage ,:all
+      #can :manage ,:all
+      can :manage, OrganizationProfile, :admin_email_1 => user.email
+      can :manage, OrganizationProfile, :admin_email_2 => user.email
+      can :manage, OrganizationProfile, :admin_email_3 => user.email
+
     elsif user.metee?
-      can :manage, :all
+      #can :manage, :all
+      can :manage, OrganizationProfile, :admin_email_1 => user.email
+      can :manage, OrganizationProfile, :admin_email_2 => user.email
+      can :manage, OrganizationProfile, :admin_email_3 => user.email
+
     elsif mentor_and_mentee?
       can :manage, :all
     else # Guest
+
       can :manage, :all
     end
+
+
 
     # Define abilities for the passed in user here. For example:
     #

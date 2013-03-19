@@ -9,8 +9,17 @@
       = f.input :mission
       = f.input :summary
     .form-inputs.row
+      = f.input :admin_email_1,{ :onclick => "check_email()"}
+      = f.input :admin_email_2
+      = f.input :admin_email_3
+    .form-inputs.row
       = f.input :organization_administrator
       = f.file_field :upload_logo
 
   .form-actions
     = f.button :submit , class: 'btn-info'
+:javascript
+  function check_email()
+  {
+   alert("ddddddddddddddd");
+  }

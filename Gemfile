@@ -66,8 +66,7 @@ gem "libv8", ">= 3.11.8"
 gem 'heroku'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'rmagick'
-#below gem is for progress bar
-#gem 'completeness-fu'
+
 
 #below gem is for following and follow
 gem 'mongo_followable'

@@ -1,6 +1,7 @@
 class OrganizationProfilesController < ApplicationController
   # GET /organization_profiles
   # GET /organization_profiles.json
+  load_and_authorize_resource
   def index
     @organization_profiles = OrganizationProfile.all
 
