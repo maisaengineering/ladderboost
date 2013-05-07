@@ -22,8 +22,8 @@ defaults: &defaults
 #Facebook API keys
 development:
   <<: *defaults
-  FACEBOOK_APP_ID: 339992809445978
-  FACEBOOK_APP_SECRET: 358d4825303e1a29a19c70a4f9a7fda3
+  FACEBOOK_APP_ID: 432319306864384
+  FACEBOOK_APP_SECRET: 25e5b9f947f19a2c9e175f6b5ffa7456
 
 production:
   <<: *defaults

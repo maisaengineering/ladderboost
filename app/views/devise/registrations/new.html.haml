@@ -1,12 +1,56 @@
-%h3 Sign up
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name),html: { class: 'form-horizontal' } ) do |f|
   = f.error_notification
   = display_base_errors resource
-  = f.input :name, label: 'User Name'
-  = f.input :email, placeholder: 'user@domain.com'#, hint: 'No special characters.'
-  = f.input :password
-  = f.input :password_confirmation
-  = f.input :roles,as: :check_boxes,collection: User::ROLES ,label: "I am"#,item_wrapper_class: 'inline'
-  .form-actions
-    = f.button :submit ,'Sign up',class: 'btn-info'
-= render "devise/shared/links"
+  #background
+    #main
+      = image_tag("main.png")
+    #bg
+      = image_tag("bg.png")
+    #Layer17copy
+      = image_tag("Layer17copy.png")
+    #Layer17copy2
+      = image_tag("Layer17copy2.png")
+    #Layer1939sDropShadow
+      = image_tag("Layer1939sDropShadow.png")
+    #Layer2
+      = image_tag("Layer2.png")
+    #Layer1
+      = image_tag("Layer1.png")
+    #Layer1939sDropShadow_0
+      = image_tag("Layer1939sDropShadow_0.png")
+    #Layer5copy
+      -#= image_tag("Layer5copy.png")
+      = link_to image_tag("linkedin.jpg"),omniauth_authorize_path(resource_name, "linkedin")
+      = link_to image_tag("googleplus.jpg"),omniauth_authorize_path(resource_name, "google")
+      = link_to image_tag("facebook.jpg"),omniauth_authorize_path(resource_name, "facebook")
+    #Createaccountusingot
+      = image_tag("Createaccountusingot.png")
+    #or
+      = image_tag("or.png")
+    #Layer13copy4
+      = image_tag("Layer13copy4.png")
+    #Signup
+      = image_submit_tag("Signup.png")
+    #Iama
+      = f.input :roles, :collection => User::ROLES, :as => :check_boxes, :label => "I am", :item_wrapper_class => 'inline'
+      -#= f.input :roles,as: :check_boxes,collection: User::ROLES ,:label => "I am", :item_wrapper_class => 'inline'
+    #Layer43copy5
+      = f.input :password_confirmation, label:false
+    #Passwordconfirmation
+      = image_tag("Passwordconfirmation.png")
+    #Layer43copy4
+      = f.input :password, label:false
+    #Password
+      = image_tag("Password.png")
+    #Layer43copy3
+      = f.input :email, label:false, placeholder: 'user@domain.com'#, hint: 'No special characters.'
+    #Email
+      = image_tag("Email.png")
+    #Layer43copy2
+      = f.input :name, label:false
+    #Username
+      = image_tag("Username.png")
+    #Signupcopy2
+      = image_tag("Signupcopy2.png")
+    #Layer1copy
+      = image_tag("Layer1copy.png")
