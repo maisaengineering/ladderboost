@@ -1,12 +1,40 @@
-%h3 Sign in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = f.input :email, :required => false, :autofocus => true
-  = f.input :password, :required => false
-  -#- if devise_mapping.rememberable?
-    = f.input :remember_me, :as => :boolean
-    -#%label.checkbox
-      %input#user_remember_me.boolean.optional{:name => "user[remember_me]", :type => "checkbox", :value => "1"}/
-      Check me out
-  .form-actions
-    = f.button :submit, "Sign in"
-= render "devise/shared/links"
+#background
+  #main
+    = image_tag("main.png")
+  #bg
+    = image_tag("bg.png")
+  #Layer17copy
+    = image_tag("Layer17copy.png")
+  #Layer17copy2
+    = image_tag("Layer17copy2.png")
+  #Layer1939sDropShadow
+    = image_tag("Layer1939sDropShadow.png")
+  #Layer2
+    = image_tag("Layer2.png")
+  #Layer1
+    = image_tag("Layer1.png")
+  #Layer1939sDropShadow_0
+    = image_tag("Layer1939sDropShadow_0.png")
+  #Layer1copy
+    = image_tag("Layer1copy.png")
+    #sign_up_text
+      %h3 Sign in
+    .form_fields
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: 'form-horizontal' }) do |f|
+        -#= f.error_notification
+        -#= display_base_errors resource
+        = f.input :email
+        = f.input :password
+        .button
+          = f.submit 'Sign in',id: 'save'
+  #or_sign_in
+    %p or
+  #Createaccountusingot_sign_in
+    %p Login using other social account
+#Layer5copy_sign_in
+  = link_to image_tag("twitterlogo.png", :size => "50x50"),omniauth_authorize_path(resource_name, "twitter")
+  = link_to image_tag("linkedin.jpg"),omniauth_authorize_path(resource_name, "linkedin")
+  %br/
+  %br/
+  = link_to image_tag("googleplus.jpg"),omniauth_authorize_path(resource_name, "google")
+  = link_to image_tag("facebook.jpg"),omniauth_authorize_path(resource_name, "facebook")

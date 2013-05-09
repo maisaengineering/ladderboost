@@ -15,6 +15,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     social_login(request.env['omniauth.auth'], current_user,"Google")
   end
 
+  def twitter
+    social_login(request.env['omniauth.auth'], current_user,"Twitter")
+  end
+
   def social_login(data,user,kind)
     @user = User.send(:"find_for_#{kind.downcase}_oauth",data,user)
     session[:social_login_data] = data.info

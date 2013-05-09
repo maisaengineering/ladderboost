@@ -1,4 +1,5 @@
 body {
+    font-size: 12px;
     margin: 0;
     padding: 0;
 }
@@ -19,8 +20,8 @@ body {
     left: 0px;
     top: 0px;
     position: absolute;
-    width: 1539px;
-    height: 1692px;
+    width: 100%;
+    height: auto;
     z-index:1;
 }
 
@@ -90,7 +91,7 @@ body {
 
 #Layer5copy
 {
-    left: 896px;
+    left: 908px;
     top: 438px;
     position: absolute;
     width: 167px;
@@ -117,6 +118,36 @@ body {
     height: 9px;
     z-index:11;
 }
+#or_sign_in
+{
+    left: 962px;
+    top: 277px;
+    position: absolute;
+    width: 14px;
+    height: 9px;
+    z-index:11;
+}
+
+#Createaccountusingot_sign_in
+{
+    left: 900px;
+    top: 300px;
+    position: absolute;
+    width: 147px;
+    height: 31px;
+    z-index:10;
+}
+
+#Layer5copy_sign_in
+{
+    left: 908px;
+    top: 360px;
+    position: absolute;
+    width: 167px;
+    height: 50px;
+    z-index:9;
+}
+
 
 #Username
 {
@@ -172,4 +203,131 @@ body {
 .button{
     margin-left: 310px;
     margin-top: -13px;
+}
+
+body{
+    background-image: url("../images/main.png");
+
+}
+#header_part {
+    background-color: #ffffff;
+    width: 100%;
+    height: 130px;
+}
+.logo{
+    background-image: url('/assets/Layer1copy.png');
+    background-size:85px 88px;
+    background-repeat:no-repeat;
+    left: 220px;
+    top: 22px;
+    position: absolute;
+    width: 85px;
+    height: 88px;
+    z-index: 104;
+}
+
+
+#footer {
+    background-image: url('/assets/footer.png');
+    left: 0px;
+    top: 989px;
+    position: absolute;
+    width: 100%;
+    height: 116px;
+    z-index: 2;
+}
+#footer_part1 {
+    background-image: url('/assets/footer_part1.png');
+    left: 0px;
+    top: 989px;
+    position: absolute;
+    width: 100%;
+    height: 116px;
+    z-index: 3;
+}
+#footer_part2 {
+    background-image: url('/assets/footer_part2.png');
+    width: 1000px;
+    left: 130px;
+    top: 1065px;
+    position: absolute;
+    height: 1px;
+    z-index: 4;
+}
+#footer_part3 {
+    left: 0px;
+    top: 989px;
+    position: absolute;
+    height: 116px;
+    z-index: 8;
+}
+#footermenu {
+    left: 220px;
+    top: 1039px;
+    position: absolute;
+    width: 412px;
+    height: 10px;
+    z-index: 6;
+    color: white;
+}
+
+#menu_bar {
+    float: left;
+    left: 313px;
+    top: 72px;
+    position: absolute;
+    width: 831px;
+    height: 8px;
+    z-index: 103;
+}
+
+ul {
+    list-style-type: none;
+
+}
+ul li {
+    float: left;
+}
+ul a {
+padding-right: 32px;
+padding-left: 32px;
+}
+
+
+#footermenu ul a {
+    color: white;
+    padding-right: 32px;
+    padding-left: 2px;
+}
+#footermenu ul li {
+border-right: 1px solid #ffffff;
+padding: 0 12px 0 7px;
+margin: 0 18px 0 0;
+}
+
+#Copyright2013Addamen {
+    color: #ffffff;
+    left: 220px;
+    top: 1070px;
+    position: absolute;
+    width: 325px;
+    height: 10px;
+    z-index: 5;
+}
+
+#sign_out {
+    left: 1305px;
+    top: 68px;
+    position: absolute;
+    width: 8px;
+    height: 10px;
+    z-index: 94;
+}
+#PrivacyPolicy {
+    color: #ffffff;
+    left: 1240px;
+    top: 1070px;
+    position: absolute;
+    height: 10px;
+    z-index: 7;
 }

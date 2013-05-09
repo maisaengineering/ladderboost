@@ -16,7 +16,7 @@ class User
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
-  validates_presence_of :email
+  #validates_presence_of :email
   validates_presence_of :encrypted_password
 
   ## Recoverable
@@ -56,6 +56,7 @@ class User
   field :provider
   field :facebook_uid
   field :linkedin_uid
+  field :twitter_uid
 
   # Setup Indexes on DB------------------------------------------------
   #run 'rake db:mongoid:create_indexes' to create indexes
@@ -63,7 +64,7 @@ class User
 
   # Setup accessible (or protected) attributes for your model----------
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at ,
-                  :provider,:facebook_uid,:linkedin_uid ,:roles
+                  :provider,:facebook_uid,:linkedin_uid,:twitter_uid,:roles
 
   # VALIDATIONS -------------------------------------------------------
   #validates_presence_of :name
@@ -85,6 +86,10 @@ class User
 
   # Class Methods Or Scopes -------------------------------------------
   #Omniauth instance methods
+  def email_required?
+    super && provider.blank?
+  end
+
   class << self
     def new_with_session(params, session)
       super.tap do |user|
@@ -94,7 +99,7 @@ class User
       end
     end
 
-    %w(facebook linkedin google).each do |social|
+    %w(facebook linkedin google twitter).each do |social|
       define_method(:"find_for_#{social}_oauth") do |access_token, signed_in_resource = nil|
         email = access_token.provider.eql?('facebook') ? access_token.extra.raw_info.email : access_token.info.email
         if user = where(email: email).first

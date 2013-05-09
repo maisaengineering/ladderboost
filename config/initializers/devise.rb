@@ -215,12 +215,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require "omniauth-facebook"
-  #require "omniauth-twitter"
+  require "omniauth-twitter"
   require "omniauth-linkedin"
   require 'openid/store/filesystem'
 
 
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
+  config.omniauth :twitter, ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'],  {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
   config.omniauth :linkedin,ENV['LINKEDIN_APP_ID'], ENV['LINKEDIN_APP_SECRET'],
                   client_options: {request_token_path: '/uas/oauth/requestToken?scope=r_emailaddress+r_contactinfo'},
                   fields:  ['id', 'first-name', 'last-name', 'headline', 'industry', 'picture-url', 'public-profile-url','email-address',

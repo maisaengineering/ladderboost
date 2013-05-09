@@ -35,6 +35,9 @@
   #Createaccountusingot
     %p Create account using other social account
 #Layer5copy
+  = link_to image_tag("twitterlogo.png", :size => "50x50"),omniauth_authorize_path(resource_name, "twitter")
   = link_to image_tag("linkedin.jpg"),omniauth_authorize_path(resource_name, "linkedin")
+  %br/
+  %br/
   = link_to image_tag("googleplus.jpg"),omniauth_authorize_path(resource_name, "google")
   = link_to image_tag("facebook.jpg"),omniauth_authorize_path(resource_name, "facebook")

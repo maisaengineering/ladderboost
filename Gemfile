@@ -49,6 +49,7 @@ gem "twitter-bootstrap-rails"
 #Ominauth social login
 gem "omniauth", ">= 1.1.0"
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-openid'
 

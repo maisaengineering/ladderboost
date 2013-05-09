@@ -4,7 +4,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "Ladderboost"
+    %title= content_for?(:title) ? yield(:title) : "ADDAMENT"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -20,46 +20,57 @@
 
 
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#{root_path}") ADDAMENT
-          .btn-group.pull-right
-            = render 'shared/navigation'
-          .nav-collapse
-            %ul.nav
-              = active_link_to 'Home', root_path, wrap_tag: :li
-              %li
-                %a{:href => "#about"} About
-              %li
-                %a{:href => "#contact"} Contact
-              - unless user_signed_in?
-                = active_link_to 'Login', new_user_session_path, wrap_tag: :li
-                = active_link_to'Sign up', new_user_registration_path , wrap_tag: :li
+    #header_part
+      .logo
+    #menu_bar
+      %ul
+        %li
+          = active_link_to 'Home', root_path, wrap_tag: :li
+        %li
+          %a{:href => "#about"} Profile
+        %li
+          %a{:href => "#contact"} Contact
+        - unless user_signed_in?
+          %li
+            = active_link_to 'Login', new_user_session_path, wrap_tag: :li
+          %li
+            = active_link_to'Sign up', new_user_registration_path , wrap_tag: :li
+    #sign_out
+      = link_to image_tag("signout.png"),destroy_user_session_path, :method=>'delete'
+    #footer
+    #footer_part1
+    #footer_part2
+    #footer_part3
+      %img{:src => "images/footer_part3.png"}
+    #footermenu
+      %ul
+        %li
+          = active_link_to 'Home', root_path, wrap_tag: :li
+        %li
+          %a{:href => "#about"} Profile
+        %li
+          %a{:href => "#contact"} Contact
+    #Copyright2013Addamen
+      %p Copyright 2013 Addament . All Rights Reserved
+    #PrivacyPolicy
+      %p privacy policy
+    -#.container
+    -#  / Main hero unit for a primary marketing message or call to action
+    -#  .row
+    -#    - if defined?(@no_sidebar)
+    -#      = render 'shared/left_sidebar'
+    -#      #content.span9
+    -#        = yield
+    -#    - else
+    -#      #content.span12
+    -#        = bootstrap_flash
+    -#        = yield
 
-          / /.nav-collapse
-
-    .container
-      / Main hero unit for a primary marketing message or call to action
-      .row
-        - if defined?(@no_sidebar)
-          = render 'shared/left_sidebar'
-          #content.span9
-            = yield
-        - else
-          #content.span12
-            = bootstrap_flash
-            = yield
-
-      %hr/
-      %footer
-        %p
-          %a{href: "http://www.maisasolutions.com" ,target: '_blank'}> Maisa Solutions
-          \ &copy; Company 2012
+      -#%hr/
+      -#%footer
+      -#  %p
+      -#    %a{href: "http://www.maisasolutions.com" ,target: '_blank'}> Maisa Solutions
+      -#    \ &copy; Company 2012
     / /container
     /
       Javascripts

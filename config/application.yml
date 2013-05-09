@@ -18,6 +18,9 @@ defaults: &defaults
 #Linkedin API keys
   LINKEDIN_APP_ID: 6e4lz34dftbp
   LINKEDIN_APP_SECRET: fjPA6POIBrPc5YEw
+ #twitter API keys
+  CONSUMER_KEY: F9MvIhjRGs0PMiBPS70w
+  CONSUMER_SECRET: Zx2uGZtkEhBFKujxso2b0ZlHONXr181My8RBHGqaQ
 
 #Facebook API keys
 development:
