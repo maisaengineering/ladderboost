@@ -1,5 +1,5 @@
 body {
-    font-size: 12px;
+    font-size: 13px;
     margin: 0;
     padding: 0;
 }
@@ -206,6 +206,7 @@ body {
 }
 
 body{
+    width: 100%;
     background-image: url("../images/main.png");
 
 }
@@ -218,7 +219,7 @@ body{
     background-image: url('/assets/Layer1copy.png');
     background-size:85px 88px;
     background-repeat:no-repeat;
-    left: 220px;
+    left: 120px;
     top: 22px;
     position: absolute;
     width: 85px;
@@ -255,6 +256,7 @@ body{
     z-index: 4;
 }
 #footer_part3 {
+    width: 100%;
     left: 0px;
     top: 989px;
     position: absolute;
@@ -289,8 +291,8 @@ ul li {
     float: left;
 }
 ul a {
-padding-right: 32px;
-padding-left: 32px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 
@@ -300,12 +302,17 @@ padding-left: 32px;
     padding-left: 2px;
 }
 #footermenu ul li {
+font-size: 12px;
 border-right: 1px solid #ffffff;
 padding: 0 12px 0 7px;
 margin: 0 18px 0 0;
 }
+#menu_bar ul li a:hover {
+      text-decoration: none;
+}
 
 #Copyright2013Addamen {
+    font-size: 12px;
     color: #ffffff;
     left: 220px;
     top: 1070px;
@@ -316,7 +323,7 @@ margin: 0 18px 0 0;
 }
 
 #sign_out {
-    left: 1305px;
+    left: 1200px;
     top: 68px;
     position: absolute;
     width: 8px;
@@ -324,10 +331,169 @@ margin: 0 18px 0 0;
     z-index: 94;
 }
 #PrivacyPolicy {
+    font-size: 12px;
     color: #ffffff;
-    left: 1240px;
+    left: 1130px;
     top: 1070px;
     position: absolute;
     height: 10px;
     z-index: 7;
 }
+#search_box {
+    left: 780px;
+    top: 67px;
+    position: absolute;
+    width: 194px;
+    height: 27px;
+    z-index: 100;
+}
+
+#profile_pic {
+    left: 1000px;
+    top: 67px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 99;
+}
+
+#settings {
+    left: 1147px;
+    top: 69px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    z-index: 95;
+}
+#names {
+    left: 1038px;
+    top: 63px;
+    position: absolute;
+    width: 110px;
+    height: 8px;
+    z-index: 98;
+}
+
+
+#edit_profile {
+    background-color: #51A2D5;
+    left: 18px;
+    top: 21px;
+    position: absolute;
+    width: 1063px;
+    height: 54px;
+    z-index: 86;
+}
+#pencil {
+    left: 42px;
+    top: 37px;
+    position: absolute;
+    width: 11px;
+    height: 10px;
+    z-index: 87;
+}
+#EditProfile {
+    color: #ffffff;
+    left: 63px;
+    top: 39px;
+    position: absolute;
+    width: 73px;
+    height: 12px;
+    z-index: 88;
+}
+#profile_complete {
+    left: 673px;
+    top: 41px;
+    position: absolute;
+    width: 390px;
+    height: 30px;
+    z-index: 89;
+}
+.profile_complete_text{
+    color: #ffffff;
+    left: 555px;
+    top: 41px;
+    position: absolute;
+    width: 106px;
+    height: 12px;
+    z-index: 88;
+
+}
+
+#profile_background {
+    background-color:#ffffff ;
+    left: 118px;
+    top: 160px;
+    position: absolute;
+    width: 1103px;
+    height: 94px;
+    z-index: 85;
+}
+#profile_background_1 {
+    background-color: #ffffff;
+    left: 0px;
+    top: 110px;
+    position: absolute;
+    width: 547px;
+    height: 592px;
+    z-index: 42;
+}
+#profile_background_2 {
+    background-color: #ffffff;
+    left: 557px;
+    top: 110px;
+    position: absolute;
+    width: 547px;
+    height: 592px;
+    z-index: 10;
+}
+
+#profile_footer {
+    left: -3px;
+    top: 703px;
+    position: absolute;
+    width: 1111px;
+    height: 145px;
+    z-index: 9;
+}
+
+#Personal {
+    color: #B1D580;
+    left: 33px;
+    top: 140px;
+    position: absolute;
+    width: 63px;
+    height: 12px;
+    z-index: 78;
+}
+
+#profile_data {
+    left: 33px;
+    top: 178px;
+    position: absolute;
+    width: 477px;
+    z-index: 43;
+
+}
+table, tr, th
+{   width: 477px;
+    border:1px solid black;
+}
+td.odd {
+    width: 149px;
+    padding-right: 13px;
+    padding-left: 13px;
+    text-align: right;
+    background-color: #90A579;
+    height: 39px;
+}
+td.even {
+    width: 309px;
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-left: 8px;
+    background-color: #C4DDA2;
+    height: 39px;
+}
+
+

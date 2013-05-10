@@ -24,39 +24,16 @@
       .logo
     #menu_bar
       %ul
-        %li
-          = active_link_to 'HOME', root_path, wrap_tag: :li
-        %li
-          %a{:href => "#about"} PROFILE
-        %li
-          %a{:href => "#contact"} MESSAGES
-        %li
-          %a{:href => "#contact"} NETWORK
-        %li
-          %a{:href => "#contact"} PATH
-    #search_box
-      .input-append
-        %input.span2{:type => "text", :placeholder => "search.."}
-        %button.btn{:type => "button"}
-          %i.icon-search
-    #profile_pic
-      - if current_user.profile.image?
-        = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
-      - else
-        = image_tag("missing.png")
-    #names
-      %p
-      = current_user.profile.try(:name).present? ? current_user.profile.name : current_user.name
-    #settings
-      = link_to image_tag("settings.png"), edit_user_profile_path(current_user)
-    #sign_out
-      = link_to image_tag("signout.png"),destroy_user_session_path, :method=>'delete'
-    = yield
+        - unless user_signed_in?
+          %li
+            = active_link_to 'LOGIN', new_user_session_path, wrap_tag: :li
+          %li
+            = active_link_to'SIGN UP', new_user_registration_path , wrap_tag: :li
     #footer
     #footer_part1
     #footer_part2
     #footer_part3
-      = image_tag("footer_part3.png")
+      %img{:src => "images/footer_part3.png"}
     #footermenu
       %ul
         %li
@@ -69,7 +46,6 @@
       %p Copyright 2013 Addament . All Rights Reserved
     #PrivacyPolicy
       %p privacy policy
-
     -#.container
     -#  / Main hero unit for a primary marketing message or call to action
     -#  .row
@@ -93,4 +69,3 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
-
