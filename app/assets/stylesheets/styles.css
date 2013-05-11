@@ -475,18 +475,28 @@ margin: 0 18px 0 0;
     z-index: 43;
 
 }
-table, tr, th
+table.profile_data, tr.profile
 {   width: 477px;
-    border:1px solid black;
+    border:1px solid white;
 }
 td.odd {
     width: 149px;
     padding-right: 13px;
     padding-left: 13px;
     text-align: right;
-    background-color: #90A579;
+    background-color: #93A579;
     height: 39px;
 }
+
+td.odd1 {
+    width: 149px;
+    padding-right: 13px;
+    padding-left: 13px;
+    text-align: right;
+    background-color: #819E5C;
+    height: 39px;
+}
+
 td.even {
     width: 309px;
     margin-left: 10px;
@@ -494,6 +504,24 @@ td.even {
     padding-left: 8px;
     background-color: #C4DDA2;
     height: 39px;
+}
+
+#Professional {
+    color: #67ADD9;
+    left: 579px;
+    top: 140px;
+    position: absolute;
+    width: 86px;
+    height: 12px;
+    z-index: 41;
+}
+#professional_data {
+    left: 579px;
+    top: 178px;
+    position: absolute;
+    width: 477px;
+    z-index: 43;
+
 }
 
 

@@ -24,7 +24,11 @@ Ladderboost::Application.routes.draw do
       post 'follow'
       post 'unfollow'
     end
-    resource :profile
+    resource :profile  do
+      collection do
+        get 'path'
+      end
+    end
     resources :educations  , controller: 'users/educations'
     resources :professional_industries  , controller: 'users/professional_industries'
   end

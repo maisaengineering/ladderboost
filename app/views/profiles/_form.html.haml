@@ -19,44 +19,89 @@
   #profile_data
     = form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
       %table.profile_data
-        %tr
+        %tr.profile
           %td.odd First Name
           %td.even
             = f.text_field :first_name, :size => 90, :label => false
-        %tr
-          %td.odd Last Name
+        %tr.profile
+          %td.odd1 Last Name
           %td.even
             = f.text_field :last_name, :label => false
-        %tr
+        %tr.profile
           %td.odd Phone Number
           %td.even
             = f.text_field :phone_number, :size => 90, :label => false
-        %tr
-          %td.odd Birthday
+        %tr.profile
+          %td.odd1 Birthday
           %td.even
             = f.text_field :birth_day,input_html: {id: 'dt5', disable: 'true'}, :label => false
-        %tr
+        %tr.profile
           %td.odd Professional Headline
           %td.even
             = f.text_field :professional_headline, :size => 90, :label => false
-        %tr
-          %td.odd Location
+        %tr.profile
+          %td.odd1 Location
           %td.even
             = f.text_field :location, :label => false
-        %tr
+        %tr.profile
           %td.odd City
           %td.even
             = f.text_field :city, :size => 90, :label => false
-        %tr
+        %tr.profile
           %td.odd State
           %td.even
             = f.text_field :state, :label => false
-        %tr
+        %tr.profile
           %td.odd Interests
           %td.even
             = f.text_area(:interests, :size => "2x3")
+
       %br/
       = f.submit "Save", :id => "save"
+  #Professional
+    %p Professional
+  #professional_data
+    = form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
+      %table.profile_data
+        %tr.profile
+          %td.odd1 First Name
+          %td.even
+            = f.text_field :first_name, :size => 90, :label => false
+        %tr.profile
+          %td.odd Last Name
+          %td.even
+            = f.text_field :last_name, :label => false
+        %tr.profile
+          %td.odd Phone Number
+          %td.even
+            = f.text_field :phone_number, :size => 90, :label => false
+        %tr.profile
+          %td.odd Birthday
+          %td.even
+            = f.text_field :birth_day,input_html: {id: 'dt5', disable: 'true'}, :label => false
+        %tr.profile
+          %td.odd Professional Headline
+          %td.even
+            = f.text_field :professional_headline, :size => 90, :label => false
+        %tr.profile
+          %td.odd Location
+          %td.even
+            = f.text_field :location, :label => false
+        %tr.profile
+          %td.odd City
+          %td.even
+            = f.text_field :city, :size => 90, :label => false
+        %tr.profile
+          %td.odd State
+          %td.even
+            = f.text_field :state, :label => false
+        %tr.profile
+          %td.odd Interests
+          %td.even
+            = f.text_area(:interests, :size => "2x3")
+
+      %br/
+      -#= f.submit "Save", :id => "save"
 
 
 -#= simple_form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|

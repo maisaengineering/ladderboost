@@ -38,12 +38,25 @@ class ProfilesController < ApplicationController
   # PUT /users/:user_id/profile.json
 
   def update
-    if @profile.update_attributes!(params[:profile])
-      redirect_to my_account_path, notice: 'Profile was successfully updated.'
-    else
-      render action: "edit"
+    #@education = Education.find(params[:education])
+    respond_to do |format|
+      if @profile.update_attributes!(params[:profile])
+        redirect_to my_account_path, notice: 'Profile was successfully updated.'
+      else
+        format.html{render action: "edit"}
+        format.js
+      end
     end
   end
+
+  #def update
+  #  if @profile.update_attributes!(params[:profile])
+  #    redirect_to my_account_path, notice: 'Profile was successfully updated.'
+  #  else
+  #    format.html{render action: "edit"}
+  #    format.js
+  #  end
+  #end
 
 
 # DELETE /users/:user_id/profile
