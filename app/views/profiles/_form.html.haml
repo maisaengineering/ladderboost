@@ -61,44 +61,37 @@
   #Professional
     %p Professional
   #professional_data
-    = form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
+    = form_for([current_user,@professional_industry],html: {class: 'form-horizontal'}, :remote => true) do |f|
       %table.profile_data
         %tr.profile
-          %td.odd1 First Name
+          %td.odd1 Company Name
           %td.even
-            = f.text_field :first_name, :size => 90, :label => false
+            = f.text_field :company_name, :size => 90, :label => false
         %tr.profile
-          %td.odd Last Name
+          %td.odd Title
           %td.even
-            = f.text_field :last_name, :label => false
-        %tr.profile
-          %td.odd Phone Number
-          %td.even
-            = f.text_field :phone_number, :size => 90, :label => false
-        %tr.profile
-          %td.odd Birthday
-          %td.even
-            = f.text_field :birth_day,input_html: {id: 'dt5', disable: 'true'}, :label => false
-        %tr.profile
-          %td.odd Professional Headline
-          %td.even
-            = f.text_field :professional_headline, :size => 90, :label => false
+            = f.text_field :title, :label => false
         %tr.profile
           %td.odd Location
           %td.even
-            = f.text_field :location, :label => false
+            = f.text_field :location, :size => 90, :label => false
         %tr.profile
-          %td.odd City
+          %td.odd Start Date
           %td.even
-            = f.text_field :city, :size => 90, :label => false
+            = f.select :start_date, collection: Time.now.year - 10..Time.now.year + 10, prompt: "--"
         %tr.profile
-          %td.odd State
+          %td.odd End Date
           %td.even
-            = f.text_field :state, :label => false
+            = f.select :end_date, collection: Time.now.year - 10..Time.now.year + 10, prompt: "--"
         %tr.profile
           %td.odd Interests
           %td.even
-            = f.text_area(:interests, :size => "2x3")
+            = f.text_area(:description, :size => "2x3")
+        %tr.profile
+          %td.odd Is Current
+          %td.even
+            = f.check_box :is_current, :as => :boolean
+
 
       %br/
       -#= f.submit "Save", :id => "save"

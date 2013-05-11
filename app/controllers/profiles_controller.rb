@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/new
   # GET /users/:user_id/profile/new.json
   def new
+    @professional_industry = ProfessionalIndustry.new
     if session[:social_login_data]
       data = session[:social_login_data]
       @profile.assign_attributes(first_name: data.try(:first_name),last_name: data.try(:last_name),
@@ -21,6 +22,7 @@ class ProfilesController < ApplicationController
 
   # GET /users/:user_id/profile/edit
     def edit
+      @professional_industry = ProfessionalIndustry.new
 
    end
 
