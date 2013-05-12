@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  include PublicActivity::StoreController
   layout :layout_by_resource
 
   protected

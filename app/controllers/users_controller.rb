@@ -33,6 +33,8 @@ class UsersController < ApplicationController
 
   #GET account_path(user) or
   def show
+    @activities = PublicActivity::Activity.all
+    #raise @activities.inspect
     @user = current_user
     @educations = current_user.educations
     @professional_industries = current_user.professional_industries
