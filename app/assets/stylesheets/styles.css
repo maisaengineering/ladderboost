@@ -524,4 +524,17 @@ td.even {
 
 }
 
+#message {
+    margin-left: 87px;
+    margin-top: 35px;
+    color:black;
+    background-color: white;
+}
+#space {
+    width: 17px;
+}
+.chat_text {
+    color: #ffffff;
+}
+
 

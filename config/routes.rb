@@ -1,5 +1,11 @@
 Ladderboost::Application.routes.draw do
 
+  resources :messages_comments
+
+
+  resources :messages
+
+
   resources :organization_profiles
 
 

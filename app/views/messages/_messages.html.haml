@@ -1,0 +1,6 @@
+%table#message
+  - messages.each do |message|
+    %tr
+      %td= message.message
+      %td#space
+      %td= link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_post'
