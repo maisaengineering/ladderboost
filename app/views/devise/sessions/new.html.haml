@@ -1,31 +1,31 @@
 #background
   #main
     = image_tag("main.png")
-  #bg
+  #bg_sign_in
     = image_tag("bg.png")
-  #Layer17copy
+  #Layer17copy_sign_in
     = image_tag("Layer17copy.png")
-  #Layer17copy2
+  #Layer17copy2_sign_in
     = image_tag("Layer17copy2.png")
   #Layer1939sDropShadow
     = image_tag("Layer1939sDropShadow.png")
-  #Layer2
+  #Layer2_sign_in
     = image_tag("Layer2.png")
-  #Layer1
+  #Layer1_sign_in
     = image_tag("Layer1.png")
   #Layer1939sDropShadow_0
     = image_tag("Layer1939sDropShadow_0.png")
-  #Layer1copy
+  #Layer1copy_sign_in
     = image_tag("Layer1copy.png")
     #sign_up_text
-    .form_fields
+    .form_fields_sign_in
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: 'form-horizontal' }) do |f|
         -#= f.error_notification
         -#= display_base_errors resource
         = f.input :email
         = f.input :password
-        .button
-          = f.submit 'Create Account',id: 'save'
+        .button_login
+          = link_to "Create Account",  new_user_registration_path, :id=> "save"
           = f.submit 'Login in',id: 'login'
   #or_sign_in
     %p A Professional Development Website For

@@ -27,6 +27,14 @@ body {
 
 #bg
 {
+    left: 300px;
+    top: 140px;
+    position: absolute;
+    width: 769px;
+    height: 480px;
+    z-index:2;
+}
+#bg_sign_in {
     left: 364px;
     top: 140px;
     position: absolute;
@@ -37,26 +45,76 @@ body {
 
 #Layer17copy
 {
+    /*left: 1009px;*/
+    left: 924px;
+    top: 60px;
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    z-index:3;
+}
+#Layer17copy_sign_in {
+
     left: 796px;
     top: 39px;
     position: absolute;
     width: 230px;
     height: 230px;
     z-index: 4;
+}
+
+#Layer17copy2_sign_in {
+    left: 796px;
+    top: 39px;
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    z-index: 4;
+
 }
 
 #Layer17copy2
 {
-    left: 796px;
-    top: 39px;
+    /*left: 1009px;*/
+    left: 924px;
+    top: 60px;
     position: absolute;
     width: 230px;
     height: 230px;
-    z-index: 4;
+    z-index:4;
 }
 
 #Layer2
 {
+    /*left: 301px;*/
+    left: 216px;
+    top: 470px;
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    z-index:6;
+}
+
+#login {
+    background-color: #96C953;
+    border-radius: 15px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+}
+
+#Layer2_sign_in {
+    left: 250px;
+    top: 344px;
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    z-index: 7;
+}
+#Layer1_sign_in {
     left: 250px;
     top: 344px;
     position: absolute;
@@ -67,12 +125,13 @@ body {
 
 #Layer1
 {
-    left: 250px;
-    top: 344px;
+    /*left: 301px;*/
+    left: 216px;
+    top: 470px;
     position: absolute;
     width: 230px;
     height: 230px;
-    z-index: 7;
+    z-index:7;
 }
 
 #Layer1939sDropShadow_0
@@ -123,9 +182,6 @@ body {
     z-index: 11;
     line-height: 4px;
 }
-.sign_break_text {
-    margin-left: -26px;
-}
 
 #Createaccountusingot_sign_in
 {
@@ -168,9 +224,19 @@ body {
     z-index:27;
 }
 
+#Layer1copy_sign_in {
+    left: 408px;
+    top: 159px;
+    position: absolute;
+    width: 149px;
+    height: 155px;
+    z-index:28;
+
+}
+
 #Layer1copy
 {
-    left: 408px;
+    left: 332px;
     top: 159px;
     position: absolute;
     width: 149px;
@@ -189,28 +255,27 @@ body {
     text-decoration: none;
     padding: 5px 20px 5px 20px;
 }
-#login {
-    background-color: #96C953;
-    border-radius: 15px;
-    font-size: 1em;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 5px 20px 5px 20px;
-}
 
 #sign_up_text {
     margin-left: 361px;
-    margin-top: -7px;
+    margin-top: -63px;
     width: 100px;
 }
-.form_fields {
-    margin-top: 26px;
+.form_fields_sign_in {
+    margin-top: 84px;
     margin-left: -65px;
+    width: 366px;
+
+}
+.form_fields {
+    margin-left: 55px;
     width: 366px;
 }
 .button{
+    margin-left: 310px;
+    margin-top: -13px;
+}
+.button_login{
     width: 387px;
     margin-left: 187px;
     margin-top: -6px;
@@ -534,376 +599,6 @@ td.even {
     z-index: 43;
 
 }
-
-.goals_footer {
-		left: 115px;
-		top: 850px;
-		position: absolute;
-		width: 1111px;
-		height: 145px;
-		z-index: 9;
-}
-.goals {
-    background-color: white;
-    left: 119px;
-    top: 160px;
-    position: absolute;
-    width: 301px;
-    height: 690px;
-}
-.goal1 {
-		background-color: #96C953;
-		left: 20px;
-		top: 15px;
-		position: absolute;
-		width: 261px;
-		height: 149px;
-}
-.goal1_text {
-		left: 105px;
-		top: 60px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.goal1_content {
-		left: 97px;
-		top: 82px;
-		position: absolute;
-		font-size: 11px;
-		color: white;
-}
-.goal2 {
-		background-color: #3E89D4;
-		left: 20px;
-		top: 174px;
-		position: absolute;
-		width: 261px;
-		height: 149px;
-}
-.goal2_text {
-		left: 105px;
-		top: 64px;
-		position: absolute;
-		font-size: 18px;
-		color: white;	
-}
-.goal2_content {
-		left: 99px;
-		top: 82px;
-		position: absolute;
-		font-size: 11px;
-		color: white;
-}
-.goal3 {
-    background-color: #3E89D4;
-    left: 20px;
-    top: 334px;
-    position: absolute;
-    width: 261px;
-    height: 149px;
-}
-.goal3_text {
-		left: 105px;
-		top: 59px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-		width: 48px;
-		height: 12px;
-}
-.goal3_content {
-		left: 99px;
-		top: 82px;
-		position: absolute;
-		font-size: 11px;
-		color: white;
-}
-.goal4 {
-    background-color: #3E89D4;
-    left: 20px;
-    top: 494px;
-    position: absolute;
-    width: 261px;
-    height: 149px;
-}
-.goal4_text {
-		left: 105px;
-		top: 63px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-		width: 48px;
-		height: 12px;		
-}
-.goal4_content {
-		left: 99px;
-		top: 82px;
-		position: absolute;
-		font-size: 11px;
-		color: white;
-}
-.button {
-		/*left: -185px;*/
-		/*top: 664px;*/
-		/*position: absolute;*/
-        /*z-index: 5;*/
-
-}
-.steps {
-		background-color: white;
-		left: 432px;
-		top: 160px;
-		position: absolute;
-		width: 481px;
-		height: 690px;
-}
-.initiationdate{
-    left: 155px;
-    top: 60px;
-    position: absolute;
-    background-color: #3E89D4;
-		padding:10px 40px; 
-		width: 89px;
-		height: 15px;
-		border-radius: 34px;
-}
-.initiation_text {
-		left: 30px;
-		top: 10px;
-		position: absolute;
-		font-size: 18px;
-}
-.step1 {
-		background-color: #96C953;
-		left: 146px;
-		top: 129px;
-		position: absolute;
-		height: 35px;
-		width: 189px;
-}
-.step1_text {
-		left: 70px;
-		top: 11px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}	
-.milestone1 {
-		background-color: #3E89D4;
-		left: 106px;
-		top: 165px;
-		position: absolute;
-		height: 35px;
-		width: 269px;
-}
-.milestone1_text {
-		left: 81px;
-		top: 9px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.step2 {
-		background-color: #96C953;
-		left: 146px;
-		top: 247px;
-		position: absolute;
-		height: 35px;
-		width: 189px;
-}
-.step2_text {
-		left: 70px;
-		top: 11px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.step3 {
-		background-color: #96C953;
-		left: 146px;
-		top: 325px;
-		position: absolute;
-		height: 35px;
-		width: 189px;
-}
-.step3_text {
-		left: 70px;
-		top: 11px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.milestone2 {
-		background-color: #3E89D4;
-		left: 106px;
-		top: 361px;
-		position: absolute;
-		height: 35px;
-		width: 269px;
-}
-.milestone2_text {
-		left: 81px;
-		top: 9px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.step4 {
-		background-color: #96C953;
-		left: 146px;
-		top: 451px;
-		position: absolute;
-		height: 35px;
-		width: 189px;
-}
-.step4_text {
-		left: 70px;
-		top: 11px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.milestone3 {
-		background-color: #3E89D4;
-		left: 106px;
-		top: 487px;
-		position: absolute;
-		height: 35px;
-		width: 269px;
-}
-.milestone3_text {
-		left: 81px;
-		top: 9px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.jan {
-		left: 155px;
-    top: 562px;
-    position: absolute;
-    background-color: #3E89D4;
-		padding:10px 40px; 
-		width: 89px;
-		height: 11px;
-		border-radius: 34px;
-}
-.jan_text {
-		left: 34px;
-		top: 8px;
-		position: absolute;
-		font-size: 18px;
-}
-.step5 {
-		left: 57px;
-    top: 629px;
-    position: absolute;
-    background-color: #3E89D4;
-		padding:10px 40px; 
-		width: 89px;
-		height: 11px;
-		border-radius: 34px;
-}
-.step5_text {
-		left: 46px;
-		top: 7px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.milestone4 {
-		left: 261px;
-    top: 629px;
-    position: absolute;
-    background-color: #3E89D4;
-		padding:10px 40px; 
-		width: 89px;
-		height: 11px;
-		border-radius: 34px;
-}
-.milestone4_text {
-		left: 27px;
-		top: 7px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-}
-.usercomments {
-		left: 924px;
-		top: 160px;
-		position: absolute;
-		background-color: white;
-		width: 301px;
-		height: 690px;
-
-}
-.comments {
-		left: 20px;
-		top: 25px;
-		position: absolute;
-		background-color: #3E89D4;
-		width: 261px;
-		height: 54px;
-}
-.img_text {
-		left: 27px;
-		top: 17px;
-		position: absolute;
-}
-.comments_text {
-		left: 50px;
-		top: 18px;
-		position: absolute;
-		font-size: 18px;
-		color: white;
-		width: 48px;
-		height: 12px;
-}
-.user1 {
-		left: -5px;
-		top: 98px;
-		position: absolute;
-		width: 52px;
-		height: 52px;
-}
-.username1 {
-		left: 62px;
-		top: -5px;
-		position: absolute;
-		color: #3E89D4;
-}
-.username2 {
-		left: 62px;
-		top: 87px;
-		position: absolute;
-		color: #3E89D4;
-}
-.username3 {
-		left: 62px;
-		top: 178px;
-		position: absolute;
-		color: #3E89D4;
-}
-.username4 {
-		left: 62px;
-		top: 271px;
-		position: absolute;
-		color: #3E89D4;
-}
-.username5 {
-		left: 62px;
-		top: 362px;
-		position: absolute;
-		color: #3E89D4;
-}
-.username6 {
-		left: 62px;
-		top: 455px;
-		position: absolute;
-		color: #3E89D4;
-}
-
 
 #message {
     margin-left: 87px;
