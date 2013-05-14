@@ -10,10 +10,14 @@ Ladderboost::Application.routes.draw do
 
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'devise/sessions#new'
+  end
+  devise_scope :user do
+    root to: "devise/sessions#new"
   end
 
-  root :to => "home#index"
+
+  #root :to => "home#index"
 
   devise_for :users ,controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 

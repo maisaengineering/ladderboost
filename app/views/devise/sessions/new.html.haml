@@ -18,7 +18,6 @@
   #Layer1copy
     = image_tag("Layer1copy.png")
     #sign_up_text
-      %h3 Sign in
     .form_fields
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: 'form-horizontal' }) do |f|
         -#= f.error_notification
@@ -26,15 +25,15 @@
         = f.input :email
         = f.input :password
         .button
-          = f.submit 'Sign in',id: 'save'
+          = f.submit 'Create Account',id: 'save'
+          = f.submit 'Login in',id: 'login'
   #or_sign_in
-    %p or
-  #Createaccountusingot_sign_in
-    %p Login using other social account
-#Layer5copy_sign_in
-  = link_to image_tag("twitterlogo.png", :size => "50x50"),omniauth_authorize_path(resource_name, "twitter")
-  = link_to image_tag("linkedin.jpg"),omniauth_authorize_path(resource_name, "linkedin")
-  %br/
-  %br/
-  = link_to image_tag("googleplus.jpg"),omniauth_authorize_path(resource_name, "google")
-  = link_to image_tag("facebook.jpg"),omniauth_authorize_path(resource_name, "facebook")
+    %p A Professional Development Website For
+    .sign_break_text Professional To Mentor Younger Professional.
+  -##Layer5copy_sign_in
+  -#= link_to image_tag("twitterlogo.png", :size => "50x50"),omniauth_authorize_path(resource_name, "twitter")
+  -#= link_to image_tag("linkedin.jpg"),omniauth_authorize_path(resource_name, "linkedin")
+  -#%br/
+  -#%br/
+  -#= link_to image_tag("googleplus.jpg"),omniauth_authorize_path(resource_name, "google")
+  -#= link_to image_tag("facebook.jpg"),omniauth_authorize_path(resource_name, "facebook")

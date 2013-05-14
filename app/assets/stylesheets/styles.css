@@ -27,56 +27,52 @@ body {
 
 #bg
 {
-    left: 300px;
+    left: 364px;
     top: 140px;
     position: absolute;
-    width: 769px;
+    width: 580px;
     height: 480px;
-    z-index:2;
+    z-index: 2;
 }
 
 #Layer17copy
 {
-    /*left: 1009px;*/
-    left: 924px;
-    top: 60px;
+    left: 796px;
+    top: 39px;
     position: absolute;
     width: 230px;
     height: 230px;
-    z-index:3;
+    z-index: 4;
 }
 
 #Layer17copy2
 {
-    /*left: 1009px;*/
-    left: 924px;
-    top: 60px;
+    left: 796px;
+    top: 39px;
     position: absolute;
     width: 230px;
     height: 230px;
-    z-index:4;
+    z-index: 4;
 }
 
 #Layer2
 {
-    /*left: 301px;*/
-    left: 216px;
-    top: 470px;
+    left: 250px;
+    top: 344px;
     position: absolute;
     width: 230px;
     height: 230px;
-    z-index:6;
+    z-index: 7;
 }
 
 #Layer1
 {
-    /*left: 301px;*/
-    left: 216px;
-    top: 470px;
+    left: 250px;
+    top: 344px;
     position: absolute;
     width: 230px;
     height: 230px;
-    z-index:7;
+    z-index: 7;
 }
 
 #Layer1939sDropShadow_0
@@ -120,12 +116,15 @@ body {
 }
 #or_sign_in
 {
-    left: 962px;
-    top: 277px;
+    left: 593px;
+    top: 223px;
     position: absolute;
-    width: 14px;
     height: 9px;
-    z-index:11;
+    z-index: 11;
+    line-height: 4px;
+}
+.sign_break_text {
+    margin-left: -26px;
 }
 
 #Createaccountusingot_sign_in
@@ -171,7 +170,7 @@ body {
 
 #Layer1copy
 {
-    left: 332px;
+    left: 408px;
     top: 159px;
     position: absolute;
     width: 149px;
@@ -190,19 +189,31 @@ body {
     text-decoration: none;
     padding: 5px 20px 5px 20px;
 }
+#login {
+    background-color: #96C953;
+    border-radius: 15px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+}
 
 #sign_up_text {
     margin-left: 361px;
-    margin-top: -63px;
+    margin-top: -7px;
     width: 100px;
 }
 .form_fields {
-    margin-left: 55px;
+    margin-top: 26px;
+    margin-left: -65px;
     width: 366px;
 }
 .button{
-    margin-left: 310px;
-    margin-top: -13px;
+    width: 387px;
+    margin-left: 187px;
+    margin-top: -6px;
 }
 
 body{
@@ -633,9 +644,10 @@ td.even {
 		color: white;
 }
 .button {
-		left: -185px;
-		top: 664px;
-		position: absolute;
+		/*left: -185px;*/
+		/*top: 664px;*/
+		/*position: absolute;*/
+        /*z-index: 5;*/
 
 }
 .steps {
