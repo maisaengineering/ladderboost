@@ -71,6 +71,8 @@ gem 'rmagick'
 
 #below gem is for following and follow
 gem 'mongo_followable'
+# below gem is for storing activities of other users
+gem 'public_activity'
 
 
 

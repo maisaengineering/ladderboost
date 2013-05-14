@@ -1,0 +1,20 @@
+= form_for(@message, :remote => true) do |f|
+  .form-inputs
+    =f.hidden_field :user_id, :value => current_user._id
+  %table
+    %tr
+      %td.chat_text
+        Message Type
+      %td
+        = f.select :message_type, [['Public'],['Private']],{:prompt =>true}
+    %tr
+      %td.chat_text
+        Message
+      %td
+        = f.text_area(:message, :size => "2x3")
+    %tr
+      %td{:align => "center", :colspan => "2"}
+        = f.submit "Post", :id=>"save"
+  #messages_div
+    = render "messages" ,:messages => @messages
+

@@ -1,0 +1,17 @@
+%h1 Listing messages_comments
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @messages_comments.each do |messages_comment|
+    %tr
+      %td= link_to 'Show', messages_comment
+      %td= link_to 'Edit', edit_messages_comment_path(messages_comment)
+      %td= link_to 'Destroy', messages_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Messages comment', new_messages_comment_path

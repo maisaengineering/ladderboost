@@ -5,6 +5,9 @@ class Profile
   include Mongoid::Timestamps
   #include Mongoid::Paperclip
   #include Mongoid::CarrierWave
+  include PublicActivity::Model
+  #tracked
+
 
 
   # Fields-----------------------------------------------------------

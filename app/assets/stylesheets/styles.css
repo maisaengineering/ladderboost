@@ -523,6 +523,7 @@ td.even {
     z-index: 43;
 
 }
+
 .goals_footer {
 		left: 115px;
 		top: 850px;
@@ -890,4 +891,19 @@ td.even {
 		position: absolute;
 		color: #3E89D4;
 }
+
+
+#message {
+    margin-left: 87px;
+    margin-top: 35px;
+    color:black;
+    background-color: white;
+}
+#space {
+    width: 17px;
+}
+.chat_text {
+    color: #ffffff;
+}
+
 

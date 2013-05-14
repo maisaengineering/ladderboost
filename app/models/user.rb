@@ -77,6 +77,7 @@ class User
   # Associations  -----------------------------------------------------
   embeds_one :profile
   embeds_many :educations
+  has_many :messages
   embeds_many :professional_industries
 
   # Call Backs---------------------------------------------------------
