@@ -1,247 +1,59 @@
-body {
-    font-size: 13px;
-    margin: 0;
-    padding: 0;
-}
-
-#background
-{
-    position: absolute;
+.container {
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    height: 700px;
-    overflow: hidden;
-    z-index:0;
 }
-
-#main
-{
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    width: 100%;
-    height: auto;
-    z-index:1;
+body {
+    background-image:url(/assets/main.png);
 }
-
-#bg
-{
-    left: 300px;
-    top: 140px;
-    position: absolute;
-    width: 769px;
-    height: 480px;
-    z-index:2;
-}
-#bg_sign_in {
-    left: 364px;
-    top: 140px;
-    position: absolute;
-    width: 580px;
-    height: 480px;
-    z-index: 2;
-}
-
-#Layer17copy
-{
-    /*left: 1009px;*/
-    left: 924px;
-    top: 60px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index:3;
-}
-#Layer17copy_sign_in {
-
-    left: 796px;
-    top: 39px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index: 4;
-}
-
-#Layer17copy2_sign_in {
-    left: 796px;
-    top: 39px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index: 4;
+.background {
+    background-color: white;
+    width: 700px;
+    height: 458px;
+    -webkit-border-radius: 45px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius: 45px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-radius: 45px background-image;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
 
 }
-
-#Layer17copy2
-{
-    /*left: 1009px;*/
-    left: 924px;
-    top: 60px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index:4;
+/*.shadow {*/
+/*background-image: url('images/Layer1.png');*/
+/*}*/
+.logo {
+    margin-top: 18px;
+    margin-left: 32px;
 }
-
-#Layer2
-{
-    /*left: 301px;*/
-    left: 216px;
-    top: 470px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index:6;
+.sign_up {
+    margin-left: 273px;
+    margin-top: -76px;
 }
-
-#login {
-    background-color: #96C953;
-    border-radius: 15px;
-    font-size: 1em;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 5px 20px 5px 20px;
+.forms_fields {
+    margin-left: 14px;
+    margin-top: 54px;
 }
-
-#Layer2_sign_in {
-    left: 250px;
-    top: 344px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index: 7;
+.button {
+    margin-left: 312px;
 }
-#Layer1_sign_in {
-    left: 250px;
-    top: 344px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index: 7;
+.button_sign_in {
+    margin-left: 172px;
 }
-
-#Layer1
-{
-    /*left: 301px;*/
-    left: 216px;
-    top: 470px;
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    z-index:7;
+.other_login {
+    margin-left: 525px;
+    margin-top: -269px;
 }
-
-#Layer1939sDropShadow_0
-{
-    left: 367px;
-    top: 565px;
-    position: absolute;
-    width: 69px;
-    height: 72px;
-    z-index:8;
+.other_login_text {
+    text-align: center;
 }
-
-#Layer5copy
-{
-    left: 908px;
-    top: 438px;
-    position: absolute;
-    width: 167px;
-    height: 50px;
-    z-index:9;
-}
-
-#Createaccountusingot
-{
-    left: 900px;
-    top: 380px;
-    position: absolute;
-    width: 147px;
-    height: 31px;
-    z-index:10;
-}
-
-#or
-{
-    left: 962px;
-    top: 353px;
-    position: absolute;
-    width: 14px;
-    height: 9px;
-    z-index:11;
-}
-#or_sign_in
-{
-    left: 593px;
-    top: 223px;
-    position: absolute;
-    height: 9px;
-    z-index: 11;
-    line-height: 4px;
-}
-
-#Createaccountusingot_sign_in
-{
-    left: 900px;
-    top: 300px;
-    position: absolute;
-    width: 147px;
-    height: 31px;
-    z-index:10;
-}
-
-#Layer5copy_sign_in
-{
-    left: 908px;
-    top: 360px;
-    position: absolute;
-    width: 167px;
-    height: 50px;
-    z-index:9;
-}
-
-
-#Username
-{
-    left: 388px;
-    top: 352px;
-    position: absolute;
-    width: 53px;
-    height: 9px;
-    z-index:26;
-}
-
-#Signupcopy2
-{
-    left: 683px;
-    top: 250px;
-    position: absolute;
-    width: 99px;
-    height: 28px;
-    z-index:27;
-}
-
-#Layer1copy_sign_in {
-    left: 408px;
-    top: 159px;
-    position: absolute;
-    width: 149px;
-    height: 155px;
-    z-index:28;
-
-}
-
-#Layer1copy
-{
-    left: 332px;
-    top: 159px;
-    position: absolute;
-    width: 149px;
-    height: 155px;
-    z-index:28;
+.social_account {
+    margin-left: 557px;
 }
 #save
 {
@@ -255,114 +67,63 @@ body {
     text-decoration: none;
     padding: 5px 20px 5px 20px;
 }
-
-#sign_up_text {
-    margin-left: 361px;
-    margin-top: -63px;
-    width: 100px;
-}
-.form_fields_sign_in {
-    margin-top: 84px;
-    margin-left: -65px;
-    width: 366px;
-
-}
-.form_fields {
-    margin-left: 55px;
-    width: 366px;
-}
-.button{
-    margin-left: 310px;
-    margin-top: -13px;
-}
-.button_login{
-    width: 387px;
-    margin-left: 187px;
-    margin-top: -6px;
+#login
+{
+    background-color: #96C953;
+    border-radius: 15px;
+    /*box-shadow: 2px 2px 4px #777;*/
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
 }
 
-body{
-    width: 100%;
-    background-image: url("../images/main.png");
-
+.container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
-#header_part {
-    background-color: #ffffff;
+
+.header {
+    background-color: white;
     width: 100%;
     height: 130px;
 }
-.logo{
-    background-image: url('/assets/Layer1copy.png');
-    background-size:85px 88px;
-    background-repeat:no-repeat;
-    left: 120px;
-    top: 22px;
-    position: absolute;
-    width: 85px;
-    height: 88px;
-    z-index: 104;
-}
+.logo2 {
+    margin-top: 18px;
 
+}
+.menu_bar {
 
-#footer {
-    background-image: url('/assets/footer.png');
-    left: 0px;
-    top: 989px;
-    position: absolute;
-    width: 100%;
-    height: 116px;
-    z-index: 2;
-}
-#footer_part1 {
-    background-image: url('/assets/footer_part1.png');
-    left: 0px;
-    top: 989px;
-    position: absolute;
-    width: 100%;
-    height: 116px;
-    z-index: 3;
-}
-#footer_part2 {
-    background-image: url('/assets/footer_part2.png');
-    width: 1000px;
-    left: 130px;
-    top: 1065px;
-    position: absolute;
-    height: 1px;
-    z-index: 4;
-}
-#footer_part3 {
-    width: 100%;
-    left: 0px;
-    top: 989px;
-    position: absolute;
-    height: 116px;
-    z-index: 8;
-}
-#footermenu {
-    left: 220px;
-    top: 1039px;
-    position: absolute;
-    width: 412px;
-    height: 10px;
-    z-index: 6;
-    color: white;
-}
-
-#menu_bar {
-    float: left;
-    left: 313px;
-    top: 72px;
-    position: absolute;
+    margin-top: -45px;
     width: 831px;
     height: 8px;
-    z-index: 103;
 }
-
+.search_box {
+    margin-top: -14px;
+}
+.profile_pic {
+    margin-left: 14px;
+    margin-top: -27px;
+}
+.names {
+    margin-left: 14px;
+    margin-top: -34px;
+}
+.settings, .sign_out {
+    margin-left: 19px;
+    margin-top: -26px;
+  }
 ul {
     list-style-type: none;
-
 }
+ul {
+    padding: 0;
+    margin: 0 0 10px 25px;
+}
+
 ul li {
     float: left;
 }
@@ -370,87 +131,87 @@ ul a {
     padding-right: 15px;
     padding-left: 15px;
 }
+.footer {
+    background-image: url(footer.png);
+    left: 0px;
+    top: 1141px;
+    position: absolute;
+    width: 100%;
+    height: 116px;
 
-
-#footermenu ul a {
+}
+.footer1 {
+    background-image: url(footer_part3.png);
+    background-repeat:no-repeat;
+    left: 0px;
+    top: 1138px;
+    position: absolute;
+    width: 100%;
+    height: 116px;
+}
+.footermenu {
+    margin-left: 220px;
+    top: 1195px;
+    position: absolute;
+    height: 10px;
     color: white;
-    padding-right: 32px;
-    padding-left: 2px;
+    left: -6px;
 }
-#footermenu ul li {
-font-size: 12px;
-border-right: 1px solid #ffffff;
-padding: 0 12px 0 7px;
-margin: 0 18px 0 0;
-}
-#menu_bar ul li a:hover {
-      text-decoration: none;
-}
-
-#Copyright2013Addamen {
+.footermenu ul li {
     font-size: 12px;
-    color: #ffffff;
-    left: 220px;
-    top: 1070px;
-    position: absolute;
-    width: 325px;
-    height: 10px;
-    z-index: 5;
-}
-
-#sign_out {
-    left: 1200px;
-    top: 68px;
-    position: absolute;
-    width: 8px;
-    height: 10px;
-    z-index: 94;
-}
-#PrivacyPolicy {
-    font-size: 12px;
-    color: #ffffff;
-    left: 1130px;
-    top: 1070px;
-    position: absolute;
-    height: 10px;
-    z-index: 7;
-}
-#search_box {
-    left: 780px;
-    top: 67px;
-    position: absolute;
-    width: 194px;
-    height: 27px;
-    z-index: 100;
-}
-
-#profile_pic {
-    left: 1000px;
-    top: 67px;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    z-index: 99;
-}
-
-#settings {
-    left: 1147px;
-    top: 69px;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    z-index: 95;
-}
-#names {
-    left: 1038px;
-    top: 63px;
-    position: absolute;
-    width: 110px;
-    height: 8px;
-    z-index: 98;
+    border-right: 1px solid #ffffff;
+    padding: 0 12px 0 7px;
+    margin: 0 18px 0 0;
 }
 
 
+.footer_middle {
+    margin-right: 115px;
+    top: 1042px;
+    position: absolute;
+    height: 116px;
+
+}
+.footer_middle1 {
+    margin-right: 115px;
+    top: 600px;
+    position: absolute;
+    height: 116px;
+}
+
+.box1 {
+    margin-left: 40px;
+    top: 150px;
+    position: absolute;
+    height: 450px;
+    width: 427px;
+    background-color: #F2F2F2;
+}
+.box2 {
+    margin-left: 483px;
+    top: 150px;
+    position: absolute;
+    height: 450px;
+    width: 534px;
+    background-color: #F2F2F2;
+}
+.box3 {
+    margin-top: 192px;
+    border: 10px solid #96C953;
+    margin-left: 40px;
+    top: 525px;
+    position: absolute;
+    height: 304px;
+    width: 500px;
+    background-color: white;
+}.box4 {
+     margin-left: 585px;
+     top: 720px;
+     position: absolute;
+     height: 320px;
+     width: 427px;
+     background-color: #F2F2F2;
+ }
 #edit_profile {
     background-color: #51A2D5;
     left: 18px;
@@ -612,5 +373,76 @@ td.even {
 .chat_text {
     color: #ffffff;
 }
+.network {
+    margin-top: 28px;
+    margin-left: 23px;
+}
+.message {
+    margin-left: 100px;
+}
+.network_text{
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 10px;
+}
+td.mentor
+{   width: 477px;
+    border-bottom:2px solid #F2F2F2;
 
+}
+.follow_and_followee {
+    background-color: white;
+    width: 149px;
+    margin-left: 23px;
+}
+.message_updates {
 
+    margin-left: 30px;
+}
+.chat_updates {
+    width: 168px;
+    margin-left: 18px;
+    margin-top: -103px;
+}
+
+.chat_logo {
+    margin-left: 23px;
+    margin-top: -125px;
+}
+.todolist {
+    margin-left: 65px;
+}
+.todo_list_updates {
+    margin-left: 226px;
+    margin-top: -152px;
+}
+.mentor_mentee_peer {
+vertical-align: top;
+}
+
+.activity {
+    margin-top: 22px;
+    margin-left: 25px;
+    background-color: #51A3D5;
+    width: 472px;
+    height: 67px;
+}
+.activity_logo {
+    padding-left: 28px;
+    padding-top: 19px;
+}
+.activity_text {
+    color: #ffffff;
+    margin-top: -18px;
+    margin-left: 43px;
+}
+.mentee_activites {
+    margin-top: 17px;
+    margin-left: 25px;
+}
+.activity_users {
+   padding-left: 10px;
+}
+.comment, .share {
+    padding-left: 10px;
+}

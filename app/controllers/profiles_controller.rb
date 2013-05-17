@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
   def update
     #@education = Education.find(params[:education])
     respond_to do |format|
-      if @profile.update_attributes!(params[:profile])
+      if @profile.update_attributes(params[:profile])
         @profile.create_activity :update, firstname: @profile.first_name
         format.html {redirect_to my_account_path, notice: 'Profile was successfully updated.'}
       else

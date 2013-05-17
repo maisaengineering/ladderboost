@@ -1,149 +1,173 @@
-.well
-  %h6 Activites
-  - @activities.each do |activity|
-    = activity.firstname
-    %br
-  %table.table
-    %thead
-      %tr
-        %th{colspan: '2'} My Account Details
-    %tbody
-      %tr
-        %td Email
-        %td= @user.email
-      - if @user.profile.try(:name).present?
+.container
+  .path_page
+    .box1
+      %table.network
         %tr
-          %td First Name
-          %td= @user.profile.try(:first_name)
+          %td
+            %table
+              %tr
+                %td
+                  = image_tag("icons/network.gif")
+                %td
+                  .network_text Network
+          %td
+            %table.message
+              %tr
+                %td
+                  = image_tag("icons/messages.gif")
+                %td
+                  .network_text Messages
+      %table
         %tr
-          %td Last Name
-          %td= @user.profile.try(:last_name)
-      - else
+          %td.mentor_mentee_peer
+            %table
+              %tr
+                %td
+                  %table.follow_and_followee
+                    %tr
+                      %td.mentor
+                        .mentors Mentor4
+                    %tr
+                      %td.mentor
+                        .mentee Mentee   5
+                    %tr
+                      %td
+                        .peers Peers     2
+          %td
+            %table.message_updates
+              %tr
+                %td Mentee1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+              %tr
+                %td Mentee1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+              %tr
+                %td Mentee1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+      %table.chat
         %tr
-          %td Name
-          %td= @user.name
-      %tr
-        %td City
-        %td= @user.profile.try(:city)
-      %tr
-        %td State
-        %td= @user.profile.try(:state)
-      %tr
-        %td Current Sign in time
-        %td= @user.current_sign_in_at
-      %tr
-        %td Last Sign in time
-        %td= @user.last_sign_in_at
-      %tr
-        %td Current Sign in IP
-        %td= @user.current_sign_in_ip
-      %tr
-        %td Last Sign in IP
-        %td= @user.last_sign_in_ip
-      %tr
-        %td.edit-align{colspan: 2,style: 'margin-top: 15px; text-align: right;'}
-          =# link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_profile_path(@user), class: 'btn btn-info btn-mini'
-          =# link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(@user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-
-.well
-  %table.table
-    %thead
-      %tr
-        %th Education Details
-        %th.pull-right
-          %a.btn.btn-info.btn-small{"data-toggle" => "modal","data-target" => "#myModal", :href => new_user_education_path(current_user) } Add New Education
-    %tbody
-      - if @educations.blank?
+          %td
+            %table.chat_logo
+              %tr
+                %td
+                  = image_tag("icons/chat-updates.gif")
+                %td
+                  .network_text Chat Updates
+          %td
+            %table.todolist
+              %tr
+                %td
+                  = image_tag("icons/todolist.gif")
+                %td
+                  .network_text To Do List
+      %table
         %tr
-          %td{colspan: '2'}
-            %p.text-error No Educations found
-      - else
-        - @educations.each do |education|
+          %td
+            %table.chat_updates
+              %tr
+                %td Mentor1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+              %tr
+                %td Mentee1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+              %tr
+                %td Mentee1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+      %table
+        %tr
+          %td
+            %table.todo_list_updates
+              %tr
+                %td 11:00 A.M-
+              %tr
+                %td Mentor1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+              %tr
+                %td 11:00 A.M-
+              %tr
+                %td Mentee1 :
+              %tr
+                %td
+                  .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+    .box2
+      .activity
+        .activity_logo
+          =image_tag("icons/activity.gif")
+          .activity_text Activity
+      .mentee_activites
+        %table
           %tr
             %td
-              .row_content_large= education.school_name
-              .row_content_medium=  education.degree
-              .row_content_small
-                =  education.education_start_date
-                \-- #{education.education_end_date}
-            %td.edit_align{:style => "text-align:right;"}
-              %p
-                %a.btn.btn-info.btn-mini{"data-toggle" => "modal","data-target" => "#myModal", :href => edit_user_education_path(current_user,education) } Edit
-.well
-  %table.table
-    %thead
-      %tr
-        %th Professional Industries Details
-        %th.pull-right
-          %a.btn.btn-info.btn-small{"data-toggle" => "modal", "data-target" => "#myModal", :href => new_user_professional_industry_path(current_user) } Add New Profession
-
-    %tbody
-      - if @professional_industries.blank?
-        %tr
-          %td{colspan: '2'}
-            %p.text-error No Profession Industries Details found
-      - else
-        - @professional_industries.each do |professional_industries|
+              = image_tag("missing.png")
+            %td{:valign => "top"}
+              %table
+                %tr
+                  %td.activity_users @Username
+                %tr
+                  %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                %tr
+                  %td
+                    %table
+                      %tr
+                        %td.time_ago 1 hour ago
+                        %td.comment comment
+                        %td.share share
+        %hr
+        %table
           %tr
             %td
-              .row_content_large= professional_industries.company_name
-              .row_content_medium=  professional_industries.title
-              .row_content_small
-                =  professional_industries.start_date
-                \-- #{professional_industries.end_date}
-            %td.edit_align{:style => "text-align:right;"}
-              %p
-                %a.btn.btn-info.btn-mini{"data-toggle" => "modal","data-target" => "#myModal", :href => edit_user_professional_industry_path(current_user,professional_industries) } Edit
-
-#myModal.modal.fade.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel Add Details
-  .modal-body
-    %p One fine body…
-  -#.modal-footer
-  -#  %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-  -#  %button.btn.btn-primary  Save
--#%script{:src => "http://code.jquery.com/jquery-latest.js", :type => "text/javascript"}
--#:javascript
--#  $(document).ready(function() {
--#      var x;
--#      $("a").click(function(event) {
--#
--#          var href = $(this).attr('href');
--#           x = href.split("/");
--#
--#
--#      });
--#      $(".btn.btn-primary").click(function(event){
--#       var selected_transgenic_id = $(this).attr("id");
--#              alert(selected_transgenic_id);
--#        alert(x[3]);
--#        if(x[3]=="educations")
--#        {
--#        alert("xxxxxxxxxxxxxxxxx");
--#
--#         $("#new_education").submit();
--#         }
--#         else
--#         {
--#
--#          $("#new_professional_industry").submit();
--#         }
--#
--#      });
--#  });
+              = image_tag("missing.png")
+            %td{:valign => "top"}
+              %table
+                %tr
+                  %td.activity_users @Username
+                %tr
+                  %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                %tr
+                  %td
+                    %table
+                      %tr
+                        %td.time_ago 1 hour ago
+                        %td.comment comment
+                        %td.share share
+        %hr
+        %table
+          %tr
+            %td
+              = image_tag("missing.png")
+            %td{:valign => "top"}
+              %table
+                %tr
+                  %td.activity_users @Username
+                %tr
+                  %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                %tr
+                  %td
+                    %table
+                      %tr
+                        %td.time_ago 1 hour ago
+                        %td.comment comment
+                        %td.share share
+        %hr
 
 
-
-
-
-
-
-
-
-
-
-
-
+    .box3
+    .box4
+    .footer_middle
+      = image_tag("footer_goal.png")
+    .footer_middle1
+      = image_tag("footer_goal.png")

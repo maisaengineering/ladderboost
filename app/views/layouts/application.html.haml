@@ -20,55 +20,62 @@
 
 
   %body
-    #header_part
-      .logo
-    #menu_bar
+    .header
+      .container
+        =image_tag("logo.png", :class => "logo2")
+        .menu_bar
+          %ul
+            %li
+              %a{:href => "/"} HOME
+            %li
+              %a{:href => "#about"} PROFILE
+            %li
+              %a{:href => "#contact"} MESSAGES
+            %li
+              %a{:href => "#contact"} NETWORK
+            %li
+              %a{:href => "#contact"} PATH
+        %table
+          %tr
+            %td
+              .search_box
+                .input-append
+                  %input.span2{:type => "text", :placeholder => "search.."}
+                  %button.btn{:type => "button"}
+                    %i.icon-search
+            %td
+              .profile_pic
+                - if current_user.profile.image?
+                  = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
+                - else
+                  = image_tag("missing.png",height: 25,width: 25)
+            %td
+              .names
+                %p
+                = current_user.profile.try(:name).present? ? current_user.profile.name : current_user.name
+            %td
+              .settings
+                = link_to image_tag("settings.png"), edit_user_profile_path(current_user)
+            %td
+              .sign_out
+                = link_to image_tag("signout.png"),destroy_user_session_path, :method=>'delete'
+    = yield
+    .footer
+    .footer1
+    .footermenu
       %ul
         %li
-          = active_link_to 'HOME', root_path, wrap_tag: :li
+          %a{:href => "/"} HOME
         %li
           %a{:href => "#about"} PROFILE
         %li
-          = link_to "MESSAGES", new_message_path
+          %a{:href => "/"} MESSAGES
         %li
-          %a{:href => "#contact"} NETWORK
+          %a{:href => "#about"} PROFILE
         %li
-          %a{:href => "#contact"} PATH
-    #search_box
-      .input-append
-        %input.span2{:type => "text", :placeholder => "search.."}
-        %button.btn{:type => "button"}
-          %i.icon-search
-    #profile_pic
-      - if current_user.profile.image?
-        = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
-      - else
-        = image_tag("missing.png")
-    #names
-      %p
-      = current_user.profile.try(:name).present? ? current_user.profile.name : current_user.name
-    #settings
-      = link_to image_tag("settings.png"), edit_user_profile_path(current_user)
-    #sign_out
-      = link_to image_tag("signout.png"),destroy_user_session_path, :method=>'delete'
-    = yield
-    #footer
-    #footer_part1
-    #footer_part2
-    #footer_part3
-      = image_tag("footer_part3.png")
-    #footermenu
-      %ul
+          %a{:href => "/"} NETWORK
         %li
-          = active_link_to 'Home', root_path, wrap_tag: :li
-        %li
-          %a{:href => "#about"} Profile
-        %li
-          %a{:href => "#contact"} Contact
-    #Copyright2013Addamen
-      %p Copyright 2013 Addament . All Rights Reserved
-    #PrivacyPolicy
-      %p privacy policy
+          %a{:href => "#about"} PATH
 
     -#.container
     -#  / Main hero unit for a primary marketing message or call to action
@@ -93,4 +100,3 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
-

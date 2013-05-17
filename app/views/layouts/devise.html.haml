@@ -44,15 +44,16 @@
           / /.nav-collapse
 
     .container
+      = yield
       / Main hero unit for a primary marketing message or call to action
-      .row
-        - if defined?(@no_sidebar)
-          = render 'shared/left_sidebar'
-          #content.span9
+      -#.row
+      -#  - if defined?(@no_sidebar)
+      -#    = render 'shared/left_sidebar'
+      -#    #content.span9
             = yield
-        - else
-          #content.span12
-            = bootstrap_flash
+        -#- else
+        -#  #content.span12
+        -#    = bootstrap_flash
             = yield
 
       -#%hr/
