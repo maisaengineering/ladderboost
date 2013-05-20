@@ -1,141 +1,130 @@
-#profile_background
-  - unless  @profile.new_record?
-    .profile_complete_text
-      Profile Completed
-    #profile_complete
-      .progress{:style => "width:400px;"}
-        .bar{:style => "width: 0%;"}
-  #edit_profile
-  #pencil
-    = image_tag("Pencil.png")
-  #EditProfile
-    %p Edit Profile
-  #profile_background_1
-  #profile_background_2
-  #profile_footer
-    = image_tag("profile_footer.png")
-  #Personal
-    %p Personal
-  #profile_data
-    = form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
-      %table.profile_data
-        %tr.profile
-          %td.odd First Name
-          %td.even
-            = f.text_field :first_name, :size => 90, :label => false
-        %tr.profile
-          %td.odd1 Last Name
-          %td.even
-            = f.text_field :last_name, :label => false
-        %tr.profile
-          %td.odd Phone Number
-          %td.even
-            = f.text_field :phone_number, :size => 90, :label => false
-        %tr.profile
-          %td.odd1 Birthday
-          %td.even
-            = f.text_field :birth_day, :id => "dt5", :label => false
-        %tr.profile
-          %td.odd Professional Headline
-          %td.even
-            = f.text_field :professional_headline, :size => 90, :label => false
-        %tr.profile
-          %td.odd1 Location
-          %td.even
-            = f.text_field :location, :label => false
-        %tr.profile
-          %td.odd City
-          %td.even
-            = f.text_field :city, :size => 90, :label => false
-        %tr.profile
-          %td.odd State
-          %td.even
-            = f.text_field :state, :label => false
-        %tr.profile
-          %td.odd Interests
-          %td.even
-            = f.text_area(:interests, :size => "2x3")
+.container
+  %table.main_table
+    %tr
+      %td
+        %table
+          %tr
+            %td.profile_background
+              %table.edit_profile_background
+                %tr
+                  %td.edit_profile
+                    %table
+                      %tr
+                        %td.pencil_icon
+                          = image_tag("Pencil.png")
+                        %td
+                          %p.edit_profile_text  Edit Profile
+                        %td
+                          %table.profile_complete_text
+                            %tr
+                              %td
+                                %p.profile_completed profile completed
+                              %td#profile_complete
+                                .progress{:style => "width:400px;"}
+                                  .bar{:style => "width: 0%;"}
+  %br/
+  %table
+    %tr
+      %td
+        %table.profile_background_1
+          %tr
+            %td.Personal
+              %p Personal
+          %tr
+            %td.profile_data
+              = form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
+                %table.profile_data
+                  %tr.profile
+                    %td.odd First Name
+                    %td.even
+                      = f.text_field :first_name, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd1 Last Name
+                    %td.even
+                      = f.text_field :last_name, :label => false
+                  %tr.profile
+                    %td.odd Phone Number
+                    %td.even
+                      = f.text_field :phone_number, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd1 Birthday
+                    %td.even
+                      = f.text_field :birth_day, :id => "dt5", :label => false
+                  %tr.profile
+                    %td.odd Professional Headline
+                    %td.even
+                      = f.text_field :professional_headline, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd1 Location
+                    %td.even
+                      = f.text_field :location, :label => false
+                  %tr.profile
+                    %td.odd City
+                    %td.even
+                      = f.text_field :city, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd State
+                    %td.even
+                      = f.text_field :state, :label => false
+                  %tr.profile
+                    %td.odd Interests
+                    %td.even
+                      = f.text_area(:interests, :size => "2x3")
 
-      %br/
-      = f.submit "Save", :id => "save"
-  -##Professional
-  -#  %p Professional
-  -##professional_data
-  -#  = form_for([current_user,@professional_industry],html: {class: 'form-horizontal'}, :remote => true) do |f|
-  -#    %table.profile_data
-  -#      %tr.profile
-  -#        %td.odd1 Company Name
-  -#        %td.even
-  -#          = f.text_field :company_name, :size => 90, :label => false
-  -#      %tr.profile
-  -#        %td.odd Title
-  -#        %td.even
-  -#          = f.text_field :title, :label => false
-  -#      %tr.profile
-  -#        %td.odd Location
-  -#        %td.even
-  -#          = f.text_field :location, :size => 90, :label => false
-  -#      %tr.profile
-  -#        %td.odd Start Date
-  -#        %td.even
-  -#          = date_select :start_date, :admission_year, {:start_year => Date.today.year-10, :end_year => Date.today.year+10, :prompt => "--", :discard_day => true, :discard_month => true}
-  -#          -#= f.select :start_date, collection: Time.now.year - 10..Time.now.year + 10, prompt: "--"
-  -#      %tr.profile
-  -#        %td.odd End Date
-  -#        %td.even
-  -#          = date_select :end_date, :admission_year, {:start_year => Date.today.year-10, :end_year => Date.today.year+10, :prompt => "--", :discard_day => true, :discard_month => true}
-  -#          -#= f.select :end_date, {:start_year => Time.now.year - 40, :end_year => Time.now.year + 10}
-  -#      %tr.profile
-  -#        %td.odd Interests
-  -#        %td.even
-  -#          = f.text_area(:description, :size => "2x3")
-  -#      %tr.profile
-  -#        %td.odd Is Current
-  -#        %td.even
-  -#          = f.check_box :is_current, :as => :boolean
-  -#
-  -#
-  -#    %br/
-      -#= f.submit "Save", :id => "save"
+                %br/
+                = f.submit "Save", :id => "save"
+      %td.space_in_profile
+      %td
+        %table.profile_background_2
+          %tr
+            %td.Personal
+              %p Professional
+          %tr
+            %td.profile_data
+              = form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
+                %table.profile_data
+                  %tr.profile
+                    %td.odd First Name
+                    %td.even
+                      = f.text_field :first_name, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd1 Last Name
+                    %td.even
+                      = f.text_field :last_name, :label => false
+                  %tr.profile
+                    %td.odd Phone Number
+                    %td.even
+                      = f.text_field :phone_number, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd1 Birthday
+                    %td.even
+                      = f.text_field :birth_day, :id => "dt5", :label => false
+                  %tr.profile
+                    %td.odd Professional Headline
+                    %td.even
+                      = f.text_field :professional_headline, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd1 Location
+                    %td.even
+                      = f.text_field :location, :label => false
+                  %tr.profile
+                    %td.odd City
+                    %td.even
+                      = f.text_field :city, :size => 90, :label => false
+                  %tr.profile
+                    %td.odd State
+                    %td.even
+                      = f.text_field :state, :label => false
+                  %tr.profile
+                    %td.odd Interests
+                    %td.even
+                      = f.text_area(:interests, :size => "2x3")
 
-
--#= simple_form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f|
--#
--#  .form-inputs
--#    = f.error_notification
--#    .form-inputs.row
--#      = f.input :first_name
--#      = f.input :last_name
--#    .form-inputs.row
--#      = f.input :phone_number
--#      = f.input :birth_day,input_html: {id: 'dt5', disable: 'true'}
--#    .form-inputs.row
--#      = f.input :professional_headline,placeholder: 'Software Engineer,Designer'
--#      = f.input :location
--#    .form-inputs.row
--#      = f.input :city
--#      = f.input :state, :as => :string
--#    .form-inputs.row
--#      = f.input :interests,as: :text,hint: "Examples: Sports, News, Politics, World Affairs, Economics, etc.." ,
--#                 input_html:{rows: 3  }
--#      = f.input :aspirations,as: :text,hint: "Examples: Professional, personal, etc.." ,
--#                 input_html:{rows: 3 }
--#      = f.input :affiliations,as: :text,hint: "Examples: School, organizations, etc.." ,
--#                  input_html:{rows: 3 }
--#    - if current_user.roles.blank?#if signed-in via omniauth capture the role here
--#      .form-inputs.row
--#        = f.input :roles,as: :check_boxes ,collection: User::ROLES, wrapper_html: {class: 'span4'},label: 'I am'
--#    = f.input :nickname ,as: :hidden
--#    -#.form-inputs.row
--#      = f.input :country,:as => :select ,wrapper_html: {class: 'span4'}
--#      = f.input :zip_code, wrapper_html: {class: 'span4'}
--#
--#    =# f.input :avatar
--#    = f.file_field :image
--#
--#
--#  .form-actions
--#    = f.button :submit ,button_name,class: 'btn-info'
+                %br/
+                -#= f.submit "Save", :id => "save"
+  %table.table_footer
+    %tr
+      %td.footer_middle
 %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"}
 :javascript
   $(function(){
@@ -157,3 +146,6 @@
 
 
   });
+
+
+
