@@ -19,6 +19,7 @@ class Profile
   field :birth_day
   field :gender
   field :role
+  field :about
 
   #address
   field :location
@@ -62,16 +63,18 @@ class Profile
   #                     :size => { :in => 0..5.megabytes }
   validates :birth_day, presence: true
 
-  validate :roles_if_not_assigned
+  #validate :roles_if_not_assigned
   # Constants Or Class variable---------------------------------------
 
   # Associations  -----------------------------------------------------
 
   embedded_in :user
+  embeds_one :professional_industries
+
 
   # Call Backs---------------------------------------------------------
-  before_validation { |record| roles.reject!(&:blank?) if roles.present? }
-  after_save :assign_role
+ # before_validation { |record| roles.reject!(&:blank?) if roles.present? }
+  #after_save :assign_role
 
   before_save :titleize_attributes
   # Class Methods Or Scopes -------------------------------------------
@@ -96,14 +99,15 @@ class Profile
   def name
     "#{first_name} #{last_name}"
   end
-  # below method is used for progress bar in profile page
+  #below method is used for progress bar in profile page
   def complete_percentage()
+
     percentage = 0
     percentage += 20 if  interests.present?
     percentage += 10 if  aspirations.present?
     percentage += 10 if  affiliations.present?
-    percentage += 30 if  user.educations.present?
-    percentage += 30 if  user.professional_industries.present?
+    #percentage += 30 if  user.educations.present?
+    percentage += 30 if  professional_industries.present?
     return percentage
   end
   # Private or Protected Methods----- ----------------------------------

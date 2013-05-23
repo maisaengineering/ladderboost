@@ -2,20 +2,44 @@
   .alert.alert-success
     %button.close{"data-dismiss" => "alert", :type => "button"} ×
     %p.text-info= flash[:notice]
-.background
+.background1
   .shadow
   =image_tag("logo.png", :class => "logo")
-  .sign_up
-    %h3 Sign Up
-  .forms_fields
-    = simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: 'form-horizontal' }) do |f|
-      -#= f.error_notification
-      -#= display_base_errors resource
-      = f.input :email
-      = f.input :password
-      .button_sign_in
-        = link_to "Create Account",  new_user_registration_path, :id=> "save"
-        = f.submit 'Log in',id: 'login'
+  .sign_in
+    %p A Professional Development Website For
+    .other_text Professionals To Mentor Younger Professionals.
+  .forms_fields1
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      %table
+        %tr
+          %td
+            Email
+        %tr
+          %td
+            = f.email_field :email, :class => "input-xlarge", :autofocus => true
+        %tr
+          %td
+            Password
+        %tr
+          %td
+            = f.password_field :password, :class => "input-xlarge"
+
+      - if devise_mapping.rememberable?
+        %tr
+          %td
+            = f.check_box :remember_me, :value => 1
+          %td
+            Remember Me
+          = link_to "Create Account",  new_user_registration_path, :id=> "save"
+          = f.submit 'Log in',id: 'login'
+    -#= simple_form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: 'form-horizontal' }) do |f|
+    -#  -#= f.error_notification
+    -#  -#= display_base_errors resource
+    -#  = f.input :email
+    -#  = f.input :password
+    -#  .button_sign_in
+    -#    = link_to "Create Account",  new_user_registration_path, :id=> "save"
+    -#    = f.submit 'Log in',id: 'login'
 -##background1
 -#  #main11
 -#    = image_tag("main111.png")

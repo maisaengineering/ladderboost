@@ -37,6 +37,8 @@ Ladderboost::Application.routes.draw do
     resource :profile  do
       collection do
         get 'path'
+        get 'about'
+        put 'about_update'
       end
     end
     resources :educations  , controller: 'users/educations'

@@ -7,7 +7,7 @@
     width: 888px;
     margin-left: 27px;
 }
-.edit_profile {
+.edit_profile_back {
     background-color: #51A2D5;
     width: 874px;
     padding-top: 14px;
@@ -62,6 +62,14 @@ table.profile_data, tr.profile  {
     width: 431px;
     border:1px solid white;
     margin-left: 19px;
+    margin-top: -30px;
+
+}
+table.profile_data2 {
+    width: 431px;
+    border:1px solid white;
+    margin-left: 19px;
+    margin-top: -77px;
 }
 .space_in_profile {
     width: 6px;
@@ -70,6 +78,51 @@ table.profile_data, tr.profile  {
 .profile_background_2 {
     background-color: #ffffff;
     width: 471px;
-    height: 592px;
+    height: 598px;
 
 }
+#file {
+    display:none;
+    background-color:red;
+    width:10px;
+}
+.fileUploadContainer {
+    position: relative;
+    display: block;
+    float: left;
+    width: 230px;
+}
+
+.fileUploadButtonContainer {
+    position: relative;
+    width: 125px;
+    height: 30px;
+    overflow: hidden;
+}
+
+input[type="file"]{
+    -webkit-appearance: none;
+    text-align: left;
+    -webkit-rtl-ordering:  left;
+}
+
+input[type="file"]::-webkit-file-upload-button{
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    background-color: #9ECA6B;
+    border-radius: 15px;
+
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-transform: lowercase;
+    cursor: pointer;
+}​
+
+

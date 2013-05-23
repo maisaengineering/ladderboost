@@ -28,9 +28,9 @@
             .menu_bar
               %ul
                 %li
-                  %a{:href => "/"} HOME
+                  %a{:href => "/my_account"} HOME
                 %li
-                  %a{:href => "#about"} PROFILE
+                  = link_to "PROFILE", about_user_profile_path(current_user)
                 %li
                   %a{:href => "#contact"} MESSAGES
                 %li

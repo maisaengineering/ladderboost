@@ -10,7 +10,10 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/new
   # GET /users/:user_id/profile/new.json
   def new
-    @professional_industry = ProfessionalIndustry.new
+    @profile =  Profile.new
+
+    #@professional_industry = @profile.professional_industries.build
+
     if session[:social_login_data]
       data = session[:social_login_data]
       @profile.assign_attributes(first_name: data.try(:first_name),last_name: data.try(:last_name),
@@ -28,8 +31,14 @@ class ProfilesController < ApplicationController
 
   #POST /users/:user_id/profile
   def create
+
+
     @profile = current_user.build_profile(params[:profile])
+
+    #raise @seasons.inspect
+   #raise @profile.inspect
     if @profile.save
+
       redirect_to my_account_path, notice: 'Profile was successfully saved.'
     else
       render action: "new"
@@ -42,6 +51,8 @@ class ProfilesController < ApplicationController
   def update
     #@education = Education.find(params[:education])
     respond_to do |format|
+      @seasons = params[:profile][:professional_industries]
+      #raise @seasons.inspect
       if @profile.update_attributes(params[:profile])
         @profile.create_activity :update, firstname: @profile.first_name
         format.html {redirect_to my_account_path, notice: 'Profile was successfully updated.'}
@@ -50,6 +61,19 @@ class ProfilesController < ApplicationController
         format.js
       end
     end
+  end
+
+  def about
+   # @profile_about = Profile.find(params[:id])
+
+  end
+  def about_update
+    #raise params[:profile].inspect
+    @profile.update_attributes(params[:profile])
+     #respond_to do |format|
+     #
+     #  format.html {redirect_to :action => "about" }
+     #end
   end
 
   #def update

@@ -1,0 +1,194 @@
+<div class="container">
+  <table class="main_table">
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td class="profile_background">
+              <table class="edit_profile_background">
+                <tr>
+                  <td class="edit_profile_back">
+                      <table>
+                        <tr>
+                          <td class="pencil_icon"><%= image_tag("Pencil.png") %></td>
+                          <td><p class="edit_profile_text">Edit Profile</p></td>
+                          <td>
+                            <table class="profile_complete_text">
+                              <tr>
+                                <td><p class="profile_completed">Profile Completed</p></td>
+                                <td id="profile_complete">
+                                  <div class="progress" style="width: 400px;">
+                                    <div class="bar" style="width: 0%;"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+
+                        </tr>
+                      </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <br/>
+  <table>
+    <tr>
+      <td>
+        <table class="profile_background_1">
+          <tr>
+            <td class="Personal">
+              <p>Personal</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= form_for(@profile,url: user_profile_path(current_user),html: {class: 'form-horizontal', multipart: 'true'}) do |f| %>
+              <table class="profile_data">
+                <tr class="profile">
+                  <td class="odd">First Name</td>
+                  <td class="even"><%= f.text_field :first_name %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd1">Last Name</td>
+                  <td class="even"><%= f.text_field :last_name %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Phone Number</td>
+                  <td class="even"><%= f.text_field :phone_number %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd1">Birthday</td>
+                  <td class="even"><%= f.text_field :birth_day, :id => "dt5" %></td>
+                </tr>
+
+                <tr class="profile">
+                  <td class="odd1">Location</td>
+                  <td class="even"><%= f.text_field :location %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">City</td>
+                  <td class="even"><%= f.text_field :city %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd1">State</td>
+                  <td class="even"><%= f.text_field :state %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Interests</td>
+                  <td class="even"><%= f.text_area :interests, :rows => 3, :cols => 32 %></td>
+                </tr>
+
+
+                <tr>
+                  <td><%=  f.submit "Update Profile", :id=> "save" %></td>
+                  <td>
+                          <%=  f.file_field :image, :class => 'fileUploadContainer', :value => "Choose file" %>
+
+                  </td>
+                </tr>
+
+
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="space_in_profile">
+      </td>
+      <td>
+        <table class="profile_background_2">
+          <tr>
+            <td class="Personal">
+              <p>Professional</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.fields_for :professional_industries,@profile.professional_industries do |professional| %>
+              <table class="profile_data2">
+                <tr class="profile">
+                  <td class="odd">Company Name</td>
+                  <td class="even"><%=  professional.text_field :company_name %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Location</td>
+                  <td class="even"><%=  professional.text_field :location %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Role</td>
+                  <td class="even"><%=  professional.text_field :role %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Date Started</td>
+                  <td class="even"><%=  professional.text_field :start_date %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Professional Headline</td>
+                  <td class="even"><%=  professional.text_field :professional_headline %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Aspirations</td>
+                  <td class="even"><%= f.text_area :aspirations, :rows => 3, :cols => 32 %></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="text-align: right;">Examples: Professionals, Personals etc..,</td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Affiliations</td>
+                  <td class="even"><%= f.text_area :affiliations, :rows => 3, :cols => 32 %></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="text-align: right;">Examples: Professionals, Personals etc..,</td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+        </table>
+             <% end %>
+      </td>
+    </tr>
+   <% end %>
+  </table>
+  <table class="table_footer">
+    <tr>
+      <td class="footer_middle"></td>
+    </tr>
+  </table>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+  $(function(){
+    $('#dt5').datepicker()
+  });
+</script>
+<script>
+  $(window).load(function(){
+
+      var progress = setInterval(function() {
+          var $bar = $('.bar');
+
+          if ($bar.width()==400) {
+              alert("if block");
+              clearInterval(progress);
+              $('.progress').removeClass('active');
+          } else {
+              $bar.width("<%=@profile.complete_percentage %>"* 4);
+          }
+          $bar.text("<%= @profile.complete_percentage%>" + "%");
+      }, 800);
+
+  });
+</script>
+
+
+
+
