@@ -24,6 +24,17 @@ class UsersController < ApplicationController
     redirect_to("/public_profile")
   end
 
+  def tokenizer
+
+    @authors = User.all
+
+    respond_to do |format|
+      format.html
+
+      format.json { render :json => @authors }
+    end
+  end
+
   #def check_follow(check,current_user)
   #  puts  "-----------------------"
   #  current_user.follower_of?(check)

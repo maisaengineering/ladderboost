@@ -233,7 +233,11 @@
               %table.box_table4
                 %tr
                   %td
-                    = image_tag("image.png", :size => "70x80")
+                    -#= image_tag("image.png", :size => "70x80")
+                    - if current_user.profile.image?
+                      = image_tag(current_user.profile.image.url(:thumb))
+                    - else
+                      = image_tag("missing.png",height: 70,width: 80)
                   %td{:valign => "top"}
                     %table
                       %tr
@@ -282,6 +286,19 @@
                   %table
                     %tr
                       %td Latest Activity:
+                    %tr
+                      %td
+                        -#= current_user.updated_at
+                    %tr
+                      %td Date Joined
+                    %tr
+                      %td
+                        = current_user.created_at.strftime("%B %d, %Y")
+                    %tr
+                      %td About
+                    %tr
+                      %td
+                        = current_user.profile.about
   %table.table_footer
     %tr
       %td.footer_middle

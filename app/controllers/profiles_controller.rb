@@ -2,7 +2,6 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_or_build_profile,except: [:create]
 
-
   # GET /users/:user_id/profile
   # GET /users/:user_id/profile.json
   def show; end
@@ -52,9 +51,8 @@ class ProfilesController < ApplicationController
     #@education = Education.find(params[:education])
     respond_to do |format|
       @seasons = params[:profile][:professional_industries]
-      #raise @seasons.inspect
       if @profile.update_attributes(params[:profile])
-        @profile.create_activity :update, firstname: @profile.first_name
+        @profile.create_activity :create, firstname: @profile.first_name
         format.html {redirect_to my_account_path, notice: 'Profile was successfully updated.'}
       else
         format.html{render action: "edit"}
@@ -68,12 +66,7 @@ class ProfilesController < ApplicationController
 
   end
   def about_update
-    #raise params[:profile].inspect
-    @profile.update_attributes(params[:profile])
-     #respond_to do |format|
-     #
-     #  format.html {redirect_to :action => "about" }
-     #end
+   @profile.update_attributes(params[:profile])
   end
 
   #def update

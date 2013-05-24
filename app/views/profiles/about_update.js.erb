@@ -1,3 +1,15 @@
 $(".profile_text").html("<%= @profile.about %>").show();
 $(".profile_text2").hide();
+$(".before_load").hide();
+if("<%= @profile.about %>")
+{
+
+    $(".profile_text").show();
+
+}
+else
+{
+    $(".profile_text2").show();
+}
+
 

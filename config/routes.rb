@@ -30,7 +30,7 @@ Ladderboost::Application.routes.draw do
 
   resources :users  do
     collection do
-
+      get 'tokenizer'
       post 'follow'
       post 'unfollow'
     end

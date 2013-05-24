@@ -188,6 +188,13 @@
 
   });
 </script>
+<script type="text/javascript">
+    $('#profile_affiliations').click(function() {
+        $("#profile_affiliations").tokenInput("/users/tokenizer.json", {
+            theme: "facebook"
+        });
+    });
+</script>
 
 
 

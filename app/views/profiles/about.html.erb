@@ -1,17 +1,29 @@
-<h1>hello world</h1>
 <%= form_for(@profile, url: about_update_user_profile_path, :remote => true) do |f| %>
-    <% unless @profile.about!="nil" %>
-        <%= f.text_area :about, :rows => 2, :cols => 50 %>
-    <% else %>
-        <div class="profile_text" style="display: block; color:white;">
-        <%= @profile.about %>
-        </div>
-        <div class="profile_text2" style="display: none;">
-          <%= f.text_area :about, :rows => 2, :cols => 50 %>
-        </div>
-        <%end %>
+    <br/>
+        <table>
+          <tr>
+            <td>
+              <% if current_user.profile.image? %>
+              <%= image_tag(current_user.profile.image.url(:thumb)) %>
+              <% else %>
+              <%= image_tag("missing.png",height: 70,width: 80) %>
+              <% end %>
+            </td>
+            <td>
+              <div class="profile_text" style="display: block; color:white;">
+                <%= @profile.about %>
+              </div>
+              <div class="profile_text2" style="display: none;">
+                <%= f.text_area :about, :rows => 2, :cols => 50 %>
+              </div>
+            </td>
+          </tr>
+        </table>
+    <br/>
 
-    <%=  f.submit %>
+
+
+    <%=  f.submit "update Profile", :id=> "save" %>
 <% end %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
@@ -22,4 +34,21 @@
       $('.profile_text2').css('display', 'block');
    });
    </script>
+<script>
+    $(document).ready(function(){
+        if("<%= @profile.about %>")
+        {
+
+           $(".profile_text").html("<%= @profile.about %>").show();
+            $(".profile_text2").hide();
+        }
+        else
+        {
+
+            $(".profile_text2").show();
+            $(".profile_text").hide();
+        }
+
+    });
+</script>
 

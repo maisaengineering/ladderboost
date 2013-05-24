@@ -6,7 +6,7 @@ class Profile
   #include Mongoid::Paperclip
   #include Mongoid::CarrierWave
   include PublicActivity::Model
-  #tracked
+  tracked
 
 
 

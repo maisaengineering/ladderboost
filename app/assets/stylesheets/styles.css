@@ -157,7 +157,7 @@ ul {
     margin: 0 0 10px 25px;
 }
 
-ul li {
+.menu_bar ul li {
     float: left;
 }
 ul a {
