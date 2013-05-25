@@ -124,16 +124,20 @@
                           %td
                             = image_tag("missing.png")
                           %td{:valign => "top"}
+                          - @activities.each do |activity|
                             %table
                               %tr
                                 %td.activity_users @Username
                               %tr
-                                %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                %td.activity_users
+                                  = activity.trackable_type + " " + "Updated"
+
                               %tr
                                 %td
                                   %table
                                     %tr
-                                      %td.time_ago 1 hour ago
+                                      %td.time_ago
+                                        = activity.updated_at.strftime("%H") + "Hours"
                                       %td.comment comment
                                       %td.share share
                       %hr

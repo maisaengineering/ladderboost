@@ -142,7 +142,7 @@
                 </tr>
                 <tr class="profile">
                   <td class="odd">Affiliations</td>
-                  <td class="even"><%= f.text_area :affiliations, :rows => 3, :cols => 32, :id=> "textar" %></td>
+                  <td class="even"><%= f.text_area :affiliations, :rows => 3, :cols => 32, :id=> "affiliation" %></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -196,9 +196,12 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
-        $("#textar").select2({tags:["red", "green", "blue"]});
+    $("#affiliation").click(function() {
+        $("#affiliation").select2({tags:[<% for i in 0...@affilations.length %>
+            '<%= @affilations[i] %>',
+            <% end %>]});
     });
+
 </script>
 
 

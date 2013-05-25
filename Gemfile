@@ -36,7 +36,7 @@ end
 
 #jquery specific
 gem 'jquery-rails'
-
+gem 'select2-rails'
 #mongoDb specific
 gem "mongoid", "3.1.0"
 gem "mongoid-paperclip", :require => "mongoid_paperclip"

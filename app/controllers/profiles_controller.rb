@@ -25,19 +25,21 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/edit
     def edit
       @professional_industry = ProfessionalIndustry.new
+      @affilations = []
+      @user = User.all
+      @user.each do |affiliation|
+         aff = affiliation.profile.affiliations.split(',')
+         aff.each do |affilations|
+        @affilations.push(affilations)
+           end
+      end
 
    end
 
   #POST /users/:user_id/profile
   def create
-
-
     @profile = current_user.build_profile(params[:profile])
-
-    #raise @seasons.inspect
-   #raise @profile.inspect
     if @profile.save
-
       redirect_to my_account_path, notice: 'Profile was successfully saved.'
     else
       render action: "new"
@@ -49,10 +51,31 @@ class ProfilesController < ApplicationController
 
   def update
     #@education = Education.find(params[:education])
+    @profile = current_user.profile
+    @profile.attributes = params[:profile]
+     changed_field  = @profile.changed
+    #for i in 0...changed_field.length
+    #  if(changed_field[i] != "image")
+    #    #raise "#{changed}".inspect
+    #
+    #    @profile.create_activity :update, "#{changed_field[i]}" => params[:profile][:"#{changed_field[i]}"]
+    #  else
+    #    @profile.create_activity :update, "#{changed_field[i]}" => "profile pic updated"
+    #  end
+    #end
+    changed_field.each do |changed|
+       if(changed != "image")
+         @profile.create_activity :update, "#{changed}" => params[:profile][:"#{changed}"]
+       else
+         @profile.create_activity :update, "#{changed}" => "profile pic updated"
+       end
+    end
+
     respond_to do |format|
       @seasons = params[:profile][:professional_industries]
       if @profile.update_attributes(params[:profile])
-        @profile.create_activity :create, firstname: @profile.first_name
+
+         #@profile.create_activity :create, firstname: @profile.first_name
         format.html {redirect_to my_account_path, notice: 'Profile was successfully updated.'}
       else
         format.html{render action: "edit"}
