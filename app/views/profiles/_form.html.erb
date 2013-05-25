@@ -142,7 +142,7 @@
                 </tr>
                 <tr class="profile">
                   <td class="odd">Affiliations</td>
-                  <td class="even"><%= f.text_area :affiliations, :rows => 3, :cols => 32 %></td>
+                  <td class="even"><%= f.text_area :affiliations, :rows => 3, :cols => 32, :id=> "textar" %></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -193,6 +193,11 @@
         $("#profile_affiliations").tokenInput("/users/tokenizer.json", {
             theme: "facebook"
         });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $("#textar").select2({tags:["red", "green", "blue"]});
     });
 </script>
 
