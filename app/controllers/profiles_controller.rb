@@ -34,6 +34,7 @@ class ProfilesController < ApplicationController
            end
       end
 
+
    end
 
   #POST /users/:user_id/profile
