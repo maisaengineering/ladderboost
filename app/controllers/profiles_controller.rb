@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/new.json
   def new
     @profile =  Profile.new
-
+    @company = Company.all
     #@professional_industry = @profile.professional_industries.build
 
     if session[:social_login_data]
@@ -25,8 +25,8 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/edit
     def edit
       @professional_industry = ProfessionalIndustry.new
-      #@affilations = []
-      #@user = User.all
+
+      @company = Company.all
       #@user.each do |affiliation|
       #  if affiliation.profile.affiliations.present?
       #   aff = affiliation.profile.affiliations.split(',')
@@ -41,6 +41,7 @@ class ProfilesController < ApplicationController
 
   #POST /users/:user_id/profile
   def create
+    @company = Company.all
     @profile = current_user.build_profile(params[:profile])
     if @profile.save
       redirect_to my_account_path, notice: 'Profile was successfully saved.'
@@ -53,6 +54,7 @@ class ProfilesController < ApplicationController
   # PUT /users/:user_id/profile.json
 
   def update
+    @company = Company.all
     #@education = Education.find(params[:education])
     @profile = current_user.profile
     @profile.attributes = params[:profile]

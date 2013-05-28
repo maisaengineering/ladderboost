@@ -195,6 +195,14 @@
         });
     });
 </script>
+<script>
+    $("#affiliation").click(function() {
+       $("#affiliation").select2({tags:[<% for i in 0...@company.length %>
+            '<%= @company[i].company_name %>',
+            <% end %>]});
+      });
+
+</script>
 
 
 

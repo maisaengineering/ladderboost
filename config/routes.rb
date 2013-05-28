@@ -1,5 +1,8 @@
 Ladderboost::Application.routes.draw do
 
+  resources :companies
+
+
   resources :messages_comments
 
 
