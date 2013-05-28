@@ -25,15 +25,15 @@ class ProfilesController < ApplicationController
   # GET /users/:user_id/profile/edit
     def edit
       @professional_industry = ProfessionalIndustry.new
-      @affilations = []
-      @user = User.all
-      @user.each do |affiliation|
-        if affiliation.profile.affiliations.present?
-         aff = affiliation.profile.affiliations.split(',')
-         aff.each do |affilations|
-        @affilations.push(affilations)
-         end
-          end
+      #@affilations = []
+      #@user = User.all
+      #@user.each do |affiliation|
+      #  if affiliation.profile.affiliations.present?
+      #   aff = affiliation.profile.affiliations.split(',')
+      #   aff.each do |affilations|
+      #  @affilations.push(affilations)
+      #   end
+      #    end
       end
 
 
