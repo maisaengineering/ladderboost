@@ -28,10 +28,12 @@ class ProfilesController < ApplicationController
       @affilations = []
       @user = User.all
       @user.each do |affiliation|
+        if affiliation.profile.affiliations.present?
          aff = affiliation.profile.affiliations.split(',')
          aff.each do |affilations|
         @affilations.push(affilations)
-           end
+         end
+          end
       end
 
 
