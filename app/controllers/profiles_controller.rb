@@ -34,7 +34,7 @@ class ProfilesController < ApplicationController
       #  @affilations.push(affilations)
       #   end
       #    end
-      end
+      #end
 
 
    end
