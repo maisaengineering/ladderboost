@@ -195,17 +195,6 @@
         });
     });
 </script>
-<script>
-    $("#affiliation").click(function() {
-        if (<%= @affilations %>)
-        {
-        $("#affiliation").select2({tags:[<% for i in 0...@affilations.length %>
-            '<%= @affilations[i] %>',
-            <% end %>]});
-        }
-    });
-
-</script>
 
 
 
