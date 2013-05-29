@@ -9,6 +9,7 @@
               <%= image_tag("missing.png",height: 70,width: 80) %>
               <% end %>
             </td>
+            <td><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
             <td>
               <div class="profile_text" style="display: block; color:white;">
                 <%= @profile.about %>
@@ -20,15 +21,71 @@
           </tr>
         </table>
     <br/>
-
-
-
     <%=  f.submit "update Profile", :id=> "save" %>
+
+    <table>
+      <tr>
+        <td>
+          <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab1" data-toggle="tab">Past</a></li>
+              <li><a href="#tab2" data-toggle="tab">Present</a></li>
+              <li><a href="#tab3" data-toggle="tab">Future</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+
+                <% if @past!="" %>
+                    <% @past.each do |past| %>
+                        <p style="color:white;">
+                        Title<br/>
+                          <%=  past.title %><br/>
+                          Description<br/>
+                          <%=  past.description %><br/>
+                          Start Date<br/>
+                          <%=  past.start_date %><br/>
+                          End Date<br/>
+                          <%=  past.end_date %><br/>
+                          Location<br/>
+                          <%=  past.location %><br/>
+
+                         <hr>
+                          </p>
+                    <% end %>
+              <% end %>
+              </div>
+              <div class="tab-pane" id="tab2">
+                <p>
+                  <% if @current!="" %>
+                    <p style="color:white;">
+                        Title<br/>
+                        <%=  @current.company_name %><br/>
+                        Description<br/>
+                        <%=  @current.location %><br/>
+                        Start Date<br/>
+                        <%=  @current.professional_headline %><br/>
+                        Location<br/>
+                        <%=  @current.role %><br/>
+
+                        <hr>
+                    .</p>
+              <% end %>
+              </div>
+              <div class="tab-pane" id="tab3">
+                <p>I'm in Future.</p>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
 <% end %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
 <script>
-   $('.profile_text').click(function(){
+   $('.aboutbutton').click(function(){
 
       $('.profile_text').css('display', 'none');
       $('.profile_text2').css('display', 'block');
@@ -44,7 +101,6 @@
         }
         else
         {
-
             $(".profile_text2").show();
             $(".profile_text").hide();
         }

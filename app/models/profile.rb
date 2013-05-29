@@ -31,8 +31,7 @@ class Profile
 
   #
   field :interests
-  field :aspirations
-  field :affiliations
+
 
   # image
   field :image, type: String
@@ -104,10 +103,13 @@ class Profile
 
     percentage = 0
     percentage += 20 if  interests.present?
-    percentage += 10 if  aspirations.present?
-    percentage += 10 if  affiliations.present?
+    if professional_industries.present?
+
+      percentage += 10 if  professional_industries.aspirations.present?
+      percentage += 10 if professional_industries.affiliations.present?
+    end
     #percentage += 30 if  user.educations.present?
-    percentage += 30 if  professional_industries.present?
+    #percentage += 30 if  professional_industries.present?
     return percentage
   end
   # Private or Protected Methods----- ----------------------------------

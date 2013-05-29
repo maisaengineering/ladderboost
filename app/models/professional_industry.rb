@@ -14,6 +14,11 @@ class ProfessionalIndustry
   field :is_current,type: Boolean
   field :aspirations
   field :affiliations
+  field :achievements
+  field :project_name
+  field :project_start_date
+  field :project_end_date
+  field :project_description
 
   # Setup Indexes on DB -----------------------------------------------
   # Setup accessible (or protected) attributes for your model----------

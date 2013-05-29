@@ -23,6 +23,9 @@
         %tr
           %td
             = f.password_field :password, :class => "input-xlarge"
+        %tr
+          %td
+            = link_to "forgot password", new_user_password_path
 
       - if devise_mapping.rememberable?
         %tr

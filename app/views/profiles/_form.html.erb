@@ -134,7 +134,7 @@
                 </tr>
                 <tr class="profile">
                   <td class="odd">Aspirations</td>
-                  <td class="even"><%= f.text_area :aspirations, :rows => 3, :cols => 32 %></td>
+                  <td class="even"><%= professional.text_area :aspirations, :rows => 3, :cols => 32 %></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -142,11 +142,39 @@
                 </tr>
                 <tr class="profile">
                   <td class="odd">Affiliations</td>
-                  <td class="even"><%= f.text_area :affiliations, :rows => 3, :cols => 32, :id=> "affiliation" %></td>
+                  <td class="even"><%= professional.text_area :affiliations, :rows => 3, :cols => 32, :id=> "affiliation" %></td>
                 </tr>
                 <tr>
                   <td></td>
                   <td style="text-align: right;">Examples: Professionals, Personals etc..,</td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Achievements</td>
+                  <td class="even"><%= professional.text_area :achievements, :rows => 3, :cols => 32, :id=> "achievement" %></td>
+                </tr>
+                <tr class="profile">
+                  <td class="odd">Project Name</td>
+                  <td class="even"><%= professional.text_field :project_name, :id=> "project_name" %></td>
+                </tr>
+                <tr class="profile">
+                  <td><div class="button2">
+                    <%=  link_to "Add More", new_user_professional_industry_path(current_user), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+
+
+
+                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Add More Professional</h3>
+                      </div>
+                      <div class="modal-body">
+                        <p>One fine body…</p>
+                      </div>
+
+                    </div>
+                      </div>
+                  </td>
+
                 </tr>
 
               </table>

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '3.2.12'
-
+gem 'best_in_place'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

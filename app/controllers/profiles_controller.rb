@@ -90,6 +90,9 @@ class ProfilesController < ApplicationController
   end
 
   def about
+    @past = current_user.professional_industries
+    @current = current_user.profile.professional_industries
+
    # @profile_about = Profile.find(params[:id])
 
   end

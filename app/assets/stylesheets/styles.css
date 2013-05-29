@@ -422,3 +422,8 @@ td.mentor
 .space2{
     height: 10px;
 }
+.aboutbutton a:hover {
+
+    cursor: pointer;
+}
+
