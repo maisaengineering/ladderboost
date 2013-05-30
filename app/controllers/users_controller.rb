@@ -44,8 +44,8 @@ class UsersController < ApplicationController
 
   #GET account_path(user) or
   def show
-    @activities = PublicActivity::Activity.all
-    #raise @activities.inspect
+    @activities = PublicActivity::Activity.all.limit(3)
+
     @user = current_user
     @educations = current_user.educations
     @professional_industries = current_user.professional_industries

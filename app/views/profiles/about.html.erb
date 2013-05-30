@@ -21,7 +21,9 @@
           </tr>
         </table>
     <br/>
+    <div style="display: none;">
     <%=  f.submit "update Profile", :id=> "save" %>
+    </div>
 
     <table>
       <tr>
@@ -110,6 +112,11 @@
 <script>
     jQuery(function() {
         return $('.best_in_place').best_in_place();
+    });
+</script>
+<script>
+    $('#profile_about').blur(function() {
+        $('#save').trigger('click');
     });
 </script>
 
