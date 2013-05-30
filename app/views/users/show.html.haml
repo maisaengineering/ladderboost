@@ -1,3 +1,4 @@
+- activitys =[]
 .container
   %table.main_table
     %tr
@@ -124,25 +125,17 @@
                           %td
                             = image_tag("missing.png")
                           %td{:valign => "top"}
-                          -#- raise @activities.inspect
-                          - @activities.each do |activity|
-                            - activitys =  activity.attributes.reject {|k,v| k if k.start_with?('key','parameters','_id','updated_at', 'created_at', 'trackable_type')}
-                            -activitys.each do |updated_field|
-                              %table
-                                %tr
-                                  %td.activity_users @Username
-                                %tr
-                                  %td.activity_users
-                                    = updated_field[0].gsub(/_/, ' ').capitalize + " " + "updated to" + updated_field[1]
-                                %tr
-                                  %td
-                                    %table
-                                      %tr
-                                        %td.time_ago
-                                          = activity.updated_at.strftime("%H") + "Hours"
-                                        %td.comment comment
-                                        %td.share share
-                                %hr
+
+                - @activities.each do |activity|
+                  - activitys =  activity.attributes.reject {|k,v| k if k.start_with?('key','parameters','_id','updated_at','trackable_id', 'created_at', 'trackable_type')}
+                  -activitys.each do |updated_field|
+                    %table
+                      %tr
+                        %td.activity_users @Username
+                      %tr
+                        %td.activity_users
+                          = updated_field[0].gsub(/_/, ' ').capitalize + " " + "updated to" + updated_field[1]
+                  = activity.trackable_id
 
   %table.table_footer
     %tr
