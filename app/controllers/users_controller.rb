@@ -44,8 +44,7 @@ class UsersController < ApplicationController
 
   #GET account_path(user) or
   def show
-    @activities = PublicActivity::Activity.all.limit(3)
-
+    @activities = PublicActivity::Activity.desc(:created_at).limit(3)
     @user = current_user
     @educations = current_user.educations
     @professional_industries = current_user.professional_industries
@@ -56,6 +55,10 @@ class UsersController < ApplicationController
 
     #@no_of_followers = current_user.followers_count
 
+
+  end
+  def show_all
+    @activities = PublicActivity::Activity.desc(:created_at)
 
   end
 
